@@ -1,15 +1,15 @@
 {
-  "schemaVersion": 1,
-  "observedAt": "2026-10-15T20:30:05.868Z",
-  "method": "public-source-and-release-metadata-review",
-  "product": {
-    "repository": "bherbruck/solidcraft",
-    "revision": "843c54858909172b203d116df51970303292e4c6"
-  },
-  "kernel": {
-    "repository": "bherbruck/solidcore",
-    "revision": "16c5ad9cec67741ab00a41b75b18dfa7985e70ef"
-  },
-  "applicationTests": "not-executed",
-  "destinationPolicy": "Keep existing upstream browser and mdBook origins until migration is independently validated."
+	"schemaVersion": 1,
+	"observedAt": "2026-10-15T20:30:05.868Z",
+	"method": "public-source-and-release-metadata-review",
+	"product": {
+		"repository": "bherbruck/solidcraft",
+		"revision": "843c54858909172b203d116df51970303292e4c6"
+	},
+	"kernel": {
+		"repository": "bherbruck/solidcore",
+		"revision": "16c5ad9cec67741ab00a41b75b18dfa7985e70ef"
+	},
+	"applicationTests": "not-executed",
+	"destinationPolicy": "Keep existing upstream browser and mdBook origins until migration is independently validated."
 }

@@ -1,44 +1,46 @@
 ---
 interface Props {
-  model: 'enclosure' | 'rover';
-  variant?: 'workflow' | 'parameter-change';
+	model: "enclosure" | "rover";
+	variant?: "workflow" | "parameter-change";
 }
-const { model, variant = 'workflow' } = Astro.props;
-const enclosure = model === 'enclosure';
-const parameterChange = enclosure && variant === 'parameter-change';
-const captionId = `${parameterChange ? 'parameter-change' : model}-caption`;
-const source = `/media/${parameterChange ? 'enclosure-parameter' : model}.mp4`;
+const { model, variant = "workflow" } = Astro.props;
+const enclosure = model === "enclosure";
+const parameterChange = enclosure && variant === "parameter-change";
+const captionId = `${parameterChange ? "parameter-change" : model}-caption`;
+const source = `/media/${parameterChange ? "enclosure-parameter" : model}.mp4`;
 const caption = parameterChange
-  ? 'Height 24 → 32 mm · excerpt from the upstream recording · 9× playback'
-  : enclosure
-    ? 'Enclosure · upstream demo-0.8 recording · 9× playback'
-    : 'SELENE rover · Model by 0xlillith · Timeline replay at 2×';
+	? "Height 24 → 32 mm · excerpt from the upstream recording · 9× playback"
+	: enclosure
+		? "Enclosure · upstream demo-0.8 recording · 9× playback"
+		: "SELENE rover · Model by 0xlillith · Timeline replay at 2×";
 ---
 
 <figure class="product-media">
-  <video
-    autoplay
-    muted
-    loop
-    preload="metadata"
-    poster={parameterChange ? '/media/enclosure-parameter.jpg' : `/media/${model}-poster.jpg`}
-    width={parameterChange ? 1600 : 1920}
-    height={parameterChange ? 900 : 1080}
-    aria-label={parameterChange
-      ? 'Watch the enclosure height change from 24 to 32 mm'
-      : enclosure
-        ? 'Watch the enclosure modeling workflow'
-        : 'Watch the SELENE rover timeline replay'}
-    aria-describedby={captionId}
-    playsinline
-  >
-    <source src={source} type="video/mp4">
-    <a href={source}>Download the demonstration video</a>
-  </video>
-  <figcaption id={captionId}
-    ><span>{caption}</span
-    ><a href={enclosure ? '/showcase/pi-enclosure/' : '/showcase/selene/'}
-      >Workflow & credits <span aria-hidden="true">↗</span></a
-    ></figcaption
-  >
+	<video
+		aria-describedby={captionId}
+		aria-label={parameterChange
+			? "Watch the enclosure height change from 24 to 32 mm"
+			: enclosure
+				? "Watch the enclosure modeling workflow"
+				: "Watch the SELENE rover timeline replay"}
+		autoplay
+		height={parameterChange ? 900 : 1080}
+		loop
+		muted
+		playsinline
+		poster={parameterChange
+			? "/media/enclosure-parameter.jpg"
+			: `/media/${model}-poster.jpg`}
+		preload="metadata"
+		width={parameterChange ? 1600 : 1920}
+	>
+		<source src={source} type="video/mp4">
+		<a href={source}>Download the demonstration video</a>
+	</video>
+	<figcaption id={captionId}>
+		<span>{caption}</span>
+		<a href={enclosure ? "/showcase/pi-enclosure/" : "/showcase/selene/"}>
+			Workflow & credits<span aria-hidden="true">↗</span>
+		</a>
+	</figcaption>
 </figure>

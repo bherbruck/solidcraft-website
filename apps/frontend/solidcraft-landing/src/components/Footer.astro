@@ -1,34 +1,48 @@
 ---
-import { guide, site } from '../data/site';
+import { guide, site } from "../data/site";
 ---
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-brand"
-      ><a class="brand" href="/"
-        ><img src="/brand/solidcraft.svg" width="34" height="34" alt="">SolidCraft</a
-      ><p>Parametric CAD for desktop<br>and browser.</p
-      ><span class="mono small">BUILT IN RUST</span></div
-    >
-    <div
-      ><h2>Product</h2><a href="/features/">Features</a><a href="/download/">Downloads</a
-      ><a href={site.app}>Browser app</a><a href={site.releases}>Releases</a></div
-    >
-    <div
-      ><h2>Learn & build</h2><a href={site.docs}>Documentation</a><a href="/mcp/">MCP & agents</a
-      ><a href="/showcase/">Showcase</a><a href={guide('getting-started')}>Getting started</a></div
-    >
-    <div
-      ><h2>Project</h2><a href={site.repo}>GitHub</a><a href="/solidcore/">SolidCore</a
-      ><a href={`${site.repo}/blob/main/CONTRIBUTING.md`}>Contribute</a
-      ><a href={`${site.repo}/issues`}>Issues & feedback</a></div
-    >
-  </div>
-  <div class="container footer-bottom"
-    ><p>Independent open-source software. Autodesk and NVIDIA do not endorse these projects.</p
-    ><nav aria-label="Legal"
-      ><a href="/disclaimer/">Disclaimer</a><a href="/licenses/">Licenses</a
-      ><a href="/privacy/">Privacy</a></nav
-    ></div
-  >
+	<div class="container footer-grid">
+		<div class="footer-brand">
+			<a class="brand" href="/">
+				<img alt="" height="34" src="/brand/solidcraft.svg" width="34">
+				SolidCraft
+			</a>
+			<p>Parametric CAD for desktop<br>and browser.</p>
+			<span class="mono small">BUILT IN RUST</span>
+		</div>
+		<div>
+			<h2>Product</h2>
+			<a href="/features/">Features</a>
+			<a href="/download/">Downloads</a>
+			<a href={site.app}>Browser app</a>
+			<a href={site.releases}>Releases</a>
+		</div>
+		<div>
+			<h2>Learn & build</h2>
+			<a href={site.docs}>Documentation</a>
+			<a href="/mcp/">MCP & agents</a>
+			<a href="/showcase/">Showcase</a>
+			<a href={guide("getting-started")}>Getting started</a>
+		</div>
+		<div>
+			<h2>Project</h2>
+			<a href={site.repo}>GitHub</a>
+			<a href="/solidcore/">SolidCore</a>
+			<a href={`${site.repo}/blob/main/CONTRIBUTING.md`}>Contribute</a>
+			<a href={`${site.repo}/issues`}>Issues & feedback</a>
+		</div>
+	</div>
+	<div class="container footer-bottom">
+		<p>
+			Independent open-source software. Autodesk and NVIDIA do not endorse these
+			projects.
+		</p>
+		<nav aria-label="Legal">
+			<a href="/disclaimer/">Disclaimer</a>
+			<a href="/licenses/">Licenses</a>
+			<a href="/privacy/">Privacy</a>
+		</nav>
+	</div>
 </footer>

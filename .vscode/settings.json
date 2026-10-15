@@ -1,10 +1,10 @@
 {
-  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][css][astro]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biome": "explicit",
-      "source.organizeImports.biome": "explicit"
-    }
-  }
+	"[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][css][astro]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.biome": "explicit",
+			"source.organizeImports.biome": "explicit"
+		}
+	}
 }

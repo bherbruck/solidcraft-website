@@ -1,45 +1,45 @@
 {
-  "name": "@solidcraft/solidcraft-landing",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "engines": {
-    "node": ">=24.10.0 <25"
-  },
-  "scripts": {
-    "dev": "astro dev --host 127.0.0.1 --port 4347",
-    "typecheck": "astro check",
-    "test:unit": "node --test tests/*.test.ts",
-    "content:validate": "node scripts/validate-content.ts",
-    "build": "pnpm content:validate && astro build && pnpm test:output",
-    "test:output": "node scripts/validate-output.ts",
-    "test:e2e": "playwright test",
-    "test:dev": "playwright test --config playwright.dev.config.ts",
-    "preview": "astro preview --host 127.0.0.1 --port 4347",
-    "releases:refresh": "node scripts/refresh-releases.ts"
-  },
-  "dependencies": {
-    "@astrojs/react": "7.0.1",
-    "@astrojs/sitemap": "3.7.4",
-    "@fontsource-variable/ibm-plex-sans": "5.3.0",
-    "@fontsource/ibm-plex-mono": "5.3.0",
-    "@tailwindcss/vite": "4.3.3",
-    "astro": "7.3.8",
-    "dompurify": "3.4.17",
-    "lucide-react": "1.57.0",
-    "react": "19.3.1",
-    "react-dom": "19.3.1",
-    "tailwindcss": "4.3.3",
-    "zod": "4.6.7",
-    "zustand": "5.0.15"
-  },
-  "devDependencies": {
-    "@astrojs/check": "0.9.10",
-    "@axe-core/playwright": "4.13.0",
-    "@playwright/test": "1.64.1",
-    "@types/node": "24.19.2",
-    "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0",
-    "typescript": "6.0.3"
-  }
+	"name": "@solidcraft/solidcraft-landing",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"engines": {
+		"node": ">=24.10.0 <25"
+	},
+	"scripts": {
+		"dev": "astro dev --host 127.0.0.1 --port 4347",
+		"typecheck": "astro check",
+		"test:unit": "node --test tests/*.test.ts",
+		"content:validate": "node scripts/validate-content.ts",
+		"build": "pnpm content:validate && astro build && pnpm test:output",
+		"test:output": "node scripts/validate-output.ts",
+		"test:e2e": "playwright test",
+		"test:dev": "playwright test --config playwright.dev.config.ts",
+		"preview": "astro preview --host 127.0.0.1 --port 4347",
+		"releases:refresh": "node scripts/refresh-releases.ts"
+	},
+	"dependencies": {
+		"@astrojs/react": "7.0.1",
+		"@astrojs/sitemap": "3.7.4",
+		"@fontsource-variable/ibm-plex-sans": "5.3.0",
+		"@fontsource/ibm-plex-mono": "5.3.0",
+		"@tailwindcss/vite": "4.3.3",
+		"astro": "7.3.8",
+		"dompurify": "3.4.17",
+		"lucide-react": "1.57.0",
+		"react": "19.3.1",
+		"react-dom": "19.3.1",
+		"tailwindcss": "4.3.3",
+		"zod": "4.6.7",
+		"zustand": "5.0.15"
+	},
+	"devDependencies": {
+		"@astrojs/check": "0.9.10",
+		"@axe-core/playwright": "4.13.0",
+		"@playwright/test": "1.64.1",
+		"@types/node": "24.19.2",
+		"@types/react": "19.3.0",
+		"@types/react-dom": "19.3.0",
+		"typescript": "6.0.3"
+	}
 }

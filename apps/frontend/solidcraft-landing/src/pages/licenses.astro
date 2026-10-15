@@ -1,71 +1,95 @@
 ---
-import { site } from '../data/site';
-import ArticleLayout from '../layouts/ArticleLayout.astro';
+import { site } from "../data/site";
+import ArticleLayout from "../layouts/ArticleLayout.astro";
 ---
 
 <ArticleLayout
-  title="Licenses & attribution"
-  description="The software, fonts, original media, and upstream notices behind this website."
-  eyebrow="PROJECT / LICENSES"
+	description="The software, fonts, original media, and upstream notices behind this website."
+	eyebrow="PROJECT / LICENSES"
+	title="Licenses & attribution"
 >
-  <h2>SolidCraft</h2
-  ><p
-    >SolidCraft is licensed under MIT OR Apache-2.0, at your option. Read the
-    <a href="/notices/SolidCraft-MIT.txt">MIT license</a>,
-    <a href="/notices/SolidCraft-Apache-2.0.txt">Apache-2.0 license</a>, and
-    <a href="/notices/SolidCraft-ATTRIBUTION.md">asset attribution inventory</a>
-    from the pinned source used here.</p
-  >
-  <h2 id="solidcore">SolidCore</h2
-  ><p
-    >SolidCore is an independent Rust port of NVIDIA’s SMLib from USD BRep. It is licensed under
-    Apache-2.0 and retains upstream notices. Read its
-    <a href="/notices/SolidCore-LICENSE.txt">license</a>,
-    <a href="/notices/SolidCore-NOTICE.txt">NOTICE</a>, and
-    <a href="/notices/SolidCore-ATTRIBUTION.md">attribution</a>.</p
-  ><p
-    >NVIDIA and SMLib identify the upstream source. They do not imply affiliation or endorsement.</p
-  >
-  <h2>Website code</h2
-  ><p
-    >This repository’s existing <a href="/notices/Website-MIT.txt">MIT license</a> covers its
-    website code. Third-party software, fonts, and reused project media retain their own terms.</p
-  >
-  <h2>Typography</h2
-  ><p
-    >IBM Plex Sans and IBM Plex Mono are self-hosted through pinned Fontsource distributions. Both
-    use the SIL Open Font License. Their notices are included here:
-    <a href="/notices/IBM-Plex-Sans-OFL.txt">Sans OFL</a>
-    and
-    <a href="/notices/IBM-Plex-Mono-OFL.txt">Mono OFL</a>.</p
-  >
-  <h2>Original product media & branding</h2
-  ><p
-    >The SolidCraft mark, supplied social banner, sample plate, and enclosure recording are original
-    upstream assets by SolidCraft contributors. Their attribution lists MIT OR Apache-2.0. Video
-    posters are unretouched frames extracted from those recordings.</p
-  ><p
-    >The SELENE rover model is by
-    <a href="https://github.com/0xlillith/solidcraft-rover">0xlillith</a>; the recording is by
-    SolidCraft contributors. See the creator’s source repository for model-specific terms and Ubuntu
-    Light lettering notices. See the <a href="/showcase/selene/">showcase notes</a> and upstream
-    attribution for recording provenance.</p
-  ><p
-    >The B-rep illustration is an original SVG created for this website. Menu and action icons use
-    Lucide; its <a href="/notices/Lucide-LICENSE.txt">ISC license and Feather notices</a> are
-    included. Other interface icons are small original SVG paths. No proprietary CAD screenshots or
-    third-party product icons are used.</p
-  >
-  <h2>Dependencies & source records</h2
-  ><p
-    >Zustand manages shared interface state under its
-    <a href="/notices/Zustand-LICENSE.txt">MIT license</a>. Live progress reports are sanitized with
-    DOMPurify; its <a href="/notices/DOMPurify-LICENSE.txt">license terms</a> are included.</p
-  ><p
-    >Exact application and build-tool versions are recorded in <code>package.json</code> and
-    <code>pnpm-lock.yaml</code>. The checked-in source and media manifests record upstream revisions
-    and asset digests. The <a href={site.repo}>SolidCraft</a> and
-    <a href={site.kernel}>SolidCore</a>
-    repositories remain the authorities for their own distributions.</p
-  >
+	<h2>SolidCraft</h2>
+	<p>
+		SolidCraft is licensed under MIT OR Apache-2.0, at your option. Read the
+		<a href="/notices/SolidCraft-MIT.txt">MIT license</a>
+		,
+		<a href="/notices/SolidCraft-Apache-2.0.txt">Apache-2.0 license</a>
+		, and
+		<a href="/notices/SolidCraft-ATTRIBUTION.md">asset attribution inventory</a>
+		from the pinned source used here.
+	</p>
+	<h2 id="solidcore">SolidCore</h2>
+	<p>
+		SolidCore is an independent Rust port of NVIDIA’s SMLib from USD BRep. It is
+		licensed under Apache-2.0 and retains upstream notices. Read its
+		<a href="/notices/SolidCore-LICENSE.txt">license</a>
+		,
+		<a href="/notices/SolidCore-NOTICE.txt">NOTICE</a>
+		, and
+		<a href="/notices/SolidCore-ATTRIBUTION.md">attribution</a>
+		.
+	</p>
+	<p>
+		NVIDIA and SMLib identify the upstream source. They do not imply affiliation
+		or endorsement.
+	</p>
+	<h2>Website code</h2>
+	<p>
+		This repository’s existing<a href="/notices/Website-MIT.txt">
+			MIT license
+		</a> covers its website code. Third-party software, fonts, and reused
+		project media retain their own terms.
+	</p>
+	<h2>Typography</h2>
+	<p>
+		IBM Plex Sans and IBM Plex Mono are self-hosted through pinned Fontsource
+		distributions. Both use the SIL Open Font License. Their notices are
+		included here:
+		<a href="/notices/IBM-Plex-Sans-OFL.txt">Sans OFL</a>
+		and
+		<a href="/notices/IBM-Plex-Mono-OFL.txt">Mono OFL</a>
+		.
+	</p>
+	<h2>Original product media & branding</h2>
+	<p>
+		The SolidCraft mark, supplied social banner, sample plate, and enclosure
+		recording are original upstream assets by SolidCraft contributors. Their
+		attribution lists MIT OR Apache-2.0. Video posters are unretouched frames
+		extracted from those recordings.
+	</p>
+	<p>
+		The SELENE rover model is by
+		<a href="https://github.com/0xlillith/solidcraft-rover">0xlillith</a>
+		; the recording is by SolidCraft contributors. See the creator’s source
+		repository for model-specific terms and Ubuntu Light lettering notices. See
+		the<a href="/showcase/selene/">showcase notes</a> and upstream attribution
+		for recording provenance.
+	</p>
+	<p>
+		The B-rep illustration is an original SVG created for this website. Menu and
+		action icons use Lucide; its<a href="/notices/Lucide-LICENSE.txt">
+			ISC license and Feather notices
+		</a> are included. Other interface icons are small original SVG paths. No
+		proprietary CAD screenshots or third-party product icons are used.
+	</p>
+	<h2>Dependencies & source records</h2>
+	<p>
+		Zustand manages shared interface state under its
+		<a href="/notices/Zustand-LICENSE.txt">MIT license</a>
+		. Live progress reports are sanitized with DOMPurify; its<a
+			href="/notices/DOMPurify-LICENSE.txt"
+		>
+			license terms
+		</a> are included.
+	</p>
+	<p>
+		Exact application and build-tool versions are recorded in<code>
+			package.json
+		</code> and
+		<code>pnpm-lock.yaml</code>
+		. The checked-in source and media manifests record upstream revisions and
+		asset digests. The<a href={site.repo}>SolidCraft</a> and
+		<a href={site.kernel}>SolidCore</a>
+		repositories remain the authorities for their own distributions.
+	</p>
 </ArticleLayout>

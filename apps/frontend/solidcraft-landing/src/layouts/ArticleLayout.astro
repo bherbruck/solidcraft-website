@@ -1,17 +1,19 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-  title: string;
-  description: string;
-  eyebrow?: string;
+	title: string;
+	description: string;
+	eyebrow?: string;
 }
-const { title, description, eyebrow = 'PROJECT NOTES' } = Astro.props;
+const { title, description, eyebrow = "PROJECT NOTES" } = Astro.props;
 ---
 
-<BaseLayout title={`${title} · SolidCraft`} description={description}>
-  <article class="container article"
-    ><p class="eyebrow">{eyebrow}</p><h1>{title}</h1><p class="lead">{description}</p
-    ><div class="prose"><slot /></div></article
-  >
+<BaseLayout description={description} title={`${title} · SolidCraft`}>
+	<article class="container article">
+		<p class="eyebrow">{eyebrow}</p>
+		<h1>{title}</h1>
+		<p class="lead">{description}</p>
+		<div class="prose"><slot /></div>
+	</article>
 </BaseLayout>

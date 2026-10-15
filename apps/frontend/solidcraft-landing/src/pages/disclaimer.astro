@@ -1,66 +1,82 @@
 ---
-import { guide, site } from '../data/site';
-import ArticleLayout from '../layouts/ArticleLayout.astro';
+import { guide, site } from "../data/site";
+import ArticleLayout from "../layouts/ArticleLayout.astro";
 ---
 
 <ArticleLayout
-  title="Disclaimer"
-  description="Project independence, development status, and the limits of demonstrations and agent-assisted workflows."
-  eyebrow="PROJECT / DISCLAIMER"
+	description="Project independence, development status, and the limits of demonstrations and agent-assisted workflows."
+	eyebrow="PROJECT / DISCLAIMER"
+	title="Disclaimer"
 >
-  <h2>About this website</h2
-  ><p
-    >SolidCraft is an independent open-source parametric CAD project. This website provides project
-    information, documentation links, demonstrations, and links to software distributions. The
-    current release notes and maintained documentation describe the software’s supported behavior
-    and known limitations.</p
-  ><p
-    >This locally reviewable website is a proposed design. Production operator details and
-    official-site authorization have not been established by this implementation.</p
-  >
-  <h2>Third-party names & independence</h2
-  ><p
-    >SolidCraft and SolidCore are independent projects. References to Autodesk, Fusion, NVIDIA,
-    SMLib, and other third-party products identify workflow context or upstream software. They do
-    not imply affiliation, sponsorship, certification, or endorsement. Third-party names and
-    trademarks belong to their respective owners.</p
-  >
-  <h2>Development status & verification</h2
-  ><p
-    >The software is under active development. Features, file-format behavior, and supported
-    workflows may differ between releases. Demonstrations show identified builds and examples; they
-    are not a guarantee that every model or operation will succeed.</p
-  ><p
-    >Keep backups of important work. Independently verify dimensions, geometry, units, tolerances,
-    and exported files before manufacturing or other consequential use. Software warranties and
-    limitations are governed by the applicable licenses.</p
-  ><p
-    >The recordings on this site are licensed upstream demonstrations. The website implementation
-    did not independently reproduce their CAD or MCP sessions. Source review and website tests are
-    separate from testing the application.</p
-  >
-  <h2>Browser storage</h2
-  ><p
-    >Browser-saved documents are associated with the browser and origin used by the application.
-    Keep exported copies of important designs outside browser storage. Moving to a new website
-    address does not automatically move documents saved at the previous address.</p
-  ><p
-    >The browser links in this MVP open the <a href={site.app}>existing upstream app</a>. Export
-    designs before any future origin transfer, and follow the
-    <a href={guide('files')}>file and storage guidance</a>. Do not clear the old site’s browser data
-    before exporting important designs.</p
-  >
-  <h2>Agent-assisted workflows</h2
-  ><p
-    >Agent-assisted changes should be reviewed like other design changes. External AI applications
-    and providers have their own terms and data-handling practices. A local MCP connection does not
-    by itself establish that an external client keeps prompts, screenshots, or model information on
-    the device.</p
-  >
-  <h2>External resources</h2
-  ><p
-    >External repositories, downloads, documentation, and third-party services operate under their
-    own terms and policies. Software issues can be reported through
-    <a href={`${site.repo}/issues`}>the project’s GitHub issue tracker</a>.</p
-  >
+	<h2>About this website</h2>
+	<p>
+		SolidCraft is an independent open-source parametric CAD project. This
+		website provides project information, documentation links, demonstrations,
+		and links to software distributions. The current release notes and
+		maintained documentation describe the software’s supported behavior and
+		known limitations.
+	</p>
+	<p>
+		This locally reviewable website is a proposed design. Production operator
+		details and official-site authorization have not been established by this
+		implementation.
+	</p>
+	<h2>Third-party names & independence</h2>
+	<p>
+		SolidCraft and SolidCore are independent projects. References to Autodesk,
+		Fusion, NVIDIA, SMLib, and other third-party products identify workflow
+		context or upstream software. They do not imply affiliation, sponsorship,
+		certification, or endorsement. Third-party names and trademarks belong to
+		their respective owners.
+	</p>
+	<h2>Development status & verification</h2>
+	<p>
+		The software is under active development. Features, file-format behavior,
+		and supported workflows may differ between releases. Demonstrations show
+		identified builds and examples; they are not a guarantee that every model or
+		operation will succeed.
+	</p>
+	<p>
+		Keep backups of important work. Independently verify dimensions, geometry,
+		units, tolerances, and exported files before manufacturing or other
+		consequential use. Software warranties and limitations are governed by the
+		applicable licenses.
+	</p>
+	<p>
+		The recordings on this site are licensed upstream demonstrations. The
+		website implementation did not independently reproduce their CAD or MCP
+		sessions. Source review and website tests are separate from testing the
+		application.
+	</p>
+	<h2>Browser storage</h2>
+	<p>
+		Browser-saved documents are associated with the browser and origin used by
+		the application. Keep exported copies of important designs outside browser
+		storage. Moving to a new website address does not automatically move
+		documents saved at the previous address.
+	</p>
+	<p>
+		The browser links in this MVP open the<a href={site.app}>
+			existing upstream app
+		</a>
+		. Export designs before any future origin transfer, and follow the
+		<a href={guide("files")}>file and storage guidance</a>. Do not clear the old
+		site’s browser data before exporting important designs.
+	</p>
+	<h2>Agent-assisted workflows</h2>
+	<p>
+		Agent-assisted changes should be reviewed like other design changes.
+		External AI applications and providers have their own terms and
+		data-handling practices. A local MCP connection does not by itself establish
+		that an external client keeps prompts, screenshots, or model information on
+		the device.
+	</p>
+	<h2>External resources</h2>
+	<p>
+		External repositories, downloads, documentation, and third-party services
+		operate under their own terms and policies. Software issues can be reported
+		through
+		<a href={`${site.repo}/issues`}>the project’s GitHub issue tracker</a>
+		.
+	</p>
 </ArticleLayout>

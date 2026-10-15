@@ -1,117 +1,165 @@
 ---
-import ClosingCTA from '../../components/ClosingCTA.astro';
-import CoreDiagram from '../../components/CoreDiagram.astro';
-import Icon from '../../components/Icon.astro';
-import { site } from '../../data/site';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClosingCTA from "../../components/ClosingCTA.astro";
+import CoreDiagram from "../../components/CoreDiagram.astro";
+import Icon from "../../components/Icon.astro";
+import { site } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="SolidCore · A geometry kernel written in Rust"
-  description="Learn about SolidCore, the Rust port of NVIDIA’s SMLib geometry library. Browse port progress, test results, and development status."
+	description="Learn about SolidCore, the Rust port of NVIDIA’s SMLib geometry library. Browse port progress, test results, and development status."
+	title="SolidCore · A geometry kernel written in Rust"
 >
-  <section class="page-intro container intro-grid"
-    ><div
-      ><p class="eyebrow">SOLIDCORE / GEOMETRY KERNEL</p
-      ><h1>A geometry kernel<br>written in Rust.</h1
-      ><p class="lead"
-        >SolidCore is a Rust port of SMLib, an open-source C++ geometry library released by NVIDIA.
-        It is being developed for use in SolidCraft.</p
-      ><div class="actions"
-        ><a class="button primary" href="/solidcore/progress/"
-          >View port progress <Icon size={18} /></a
-        ><a class="text-link" href={site.kernel}
-          >View the source <Icon name="external" size={18} /></a
-        ></div
-      ></div
-    ><CoreDiagram /></section
-  >
-  <section class="section section-alt"
-    ><div class="container story-grid"
-      ><div
-        ><p class="eyebrow">BOUNDARY REPRESENTATION (B-REP)</p
-        ><h2>How SolidCore<br>represents a solid.</h2></div
-      ><div class="prose"
-        ><p
-          >A boundary representation describes a solid through its shells, faces, loops, edges, and
-          vertices. Geometry defines their shapes; topology defines how they connect.</p
-        ><p
-          >The editor converts this geometry into a mesh of triangles for display. The mesh is the
-          on-screen representation; the B-rep stores the underlying geometry and connections.</p
-        ><p
-          >SolidCore’s scope covers the geometry and operation layers: NURBS math, curves, surfaces,
-          topology, intersections, and the foundations for modeling operations.</p
-        ></div
-      ></div
-    ></section
-  >
-  <section class="section"
-    ><div class="container story-grid"
-      ><div
-        ><p class="eyebrow">DEVELOPMENT STATUS</p><h2>Still in development.</h2
-        ><p class="lead"
-          >SolidCore’s components are being ported and tested against the original C++ code.
-          Complete modeling operations and integration into the editor are still in development.</p
-        ></div
-      ><div class="prose"
-        ><h3>What works so far?</h3
-        ><p
-          >The reviewed source includes math, NURBS, and curve components, with surfaces and
-          topology under way. Complete operations such as creating primitives, booleans, and fillets
-          are not ready yet.</p
-        ><p>SolidCraft v0.12.0 uses Truck at its geometry-kernel boundary.</p
-        ><a
-          class="text-link"
-          href={`${site.kernel}/blob/16c5ad9cec67741ab00a41b75b18dfa7985e70ef/README.md`}
-          >Read the source status <Icon name="external" size={18} /></a
-        ></div
-      ></div
-    ></section
-  >
-  <section class="section core-section"
-    ><div class="container"
-      ><div class="section-heading"
-        ><div
-          ><p class="eyebrow">PORT STATUS AND TEST RESULTS</p
-          ><h2>Browse the port<br>and its test results.</h2></div
-        ><a class="text-link" href="/solidcore/progress/"
-          >View progress dashboard <Icon size={18} /></a
-        ></div
-      ><div class="process"
-        ><div
-          ><span class="mono">01 / UNITS</span><h3>Unit status.</h3
-          ><p>See which units are verified, partially ported, claimed, blocked, or unstarted.</p
-          ><a class="text-link" href="/solidcore/progress/units/" style="margin-top:16px"
-            >Browse units →</a
-          ></div
-        ><div
-          ><span class="mono">02 / COMPARISON</span><h3>Rust vs. C++ tests.</h3
-          ><p>Compare results from the Rust port and original C++ code.</p
-          ><a class="text-link" href="/solidcore/progress/" style="margin-top:16px"
-            >Read the overview →</a
-          ></div
-        ><div
-          ><span class="mono">03 / UPSTREAM</span><h3>Upstream bugs.</h3
-          ><p>Read bugs found in the original C++ code during porting.</p
-          ><a class="text-link" href="/solidcore/progress/issues/" style="margin-top:16px"
-            >Browse upstream issues →</a
-          ></div
-        ><div
-          ><span class="mono">04 / INTERSECTIONS</span><h3>Intersection tests.</h3
-          ><p>See how Rust and C++ handle the surface-intersection test cases.</p
-          ><a class="text-link" href="/solidcore/progress/ssi/" style="margin-top:16px"
-            >View intersection tests →</a
-          ></div
-        ></div
-      ></div
-    ></section
-  >
-  <section class="container" style="padding-block:48px"
-    ><div class="notice"
-      ><strong>License & attribution.</strong><br>SolidCore is licensed under Apache-2.0 and
-      includes notices for the original SMLib code. It is an independent project, not affiliated
-      with or endorsed by NVIDIA. <a href="/licenses/#solidcore">Read the attribution.</a></div
-    ></section
-  >
-  <ClosingCTA />
+	<section class="page-intro container intro-grid">
+		<div>
+			<p class="eyebrow">SOLIDCORE / GEOMETRY KERNEL</p>
+			<h1>A geometry kernel<br>written in Rust.</h1>
+			<p class="lead">
+				SolidCore is a Rust port of SMLib, an open-source C++ geometry library
+				released by NVIDIA. It is being developed for use in SolidCraft.
+			</p>
+			<div class="actions">
+				<a class="button primary" href="/solidcore/progress/">
+					View port progress<Icon size={18} />
+				</a>
+				<a class="text-link" href={site.kernel}>
+					View the source<Icon name="external" size={18} />
+				</a>
+			</div>
+		</div>
+		<CoreDiagram />
+	</section>
+	<section class="section section-alt">
+		<div class="container story-grid">
+			<div>
+				<p class="eyebrow">BOUNDARY REPRESENTATION (B-REP)</p>
+				<h2>How SolidCore<br>represents a solid.</h2>
+			</div>
+			<div class="prose">
+				<p>
+					A boundary representation describes a solid through its shells, faces,
+					loops, edges, and vertices. Geometry defines their shapes; topology
+					defines how they connect.
+				</p>
+				<p>
+					The editor converts this geometry into a mesh of triangles for
+					display. The mesh is the on-screen representation; the B-rep stores
+					the underlying geometry and connections.
+				</p>
+				<p>
+					SolidCore’s scope covers the geometry and operation layers: NURBS
+					math, curves, surfaces, topology, intersections, and the foundations
+					for modeling operations.
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="section">
+		<div class="container story-grid">
+			<div>
+				<p class="eyebrow">DEVELOPMENT STATUS</p>
+				<h2>Still in development.</h2>
+				<p class="lead">
+					SolidCore’s components are being ported and tested against the
+					original C++ code. Complete modeling operations and integration into
+					the editor are still in development.
+				</p>
+			</div>
+			<div class="prose">
+				<h3>What works so far?</h3>
+				<p>
+					The reviewed source includes math, NURBS, and curve components, with
+					surfaces and topology under way. Complete operations such as creating
+					primitives, booleans, and fillets are not ready yet.
+				</p>
+				<p>SolidCraft v0.12.0 uses Truck at its geometry-kernel boundary.</p>
+				<a
+					class="text-link"
+					href={`${site.kernel}/blob/16c5ad9cec67741ab00a41b75b18dfa7985e70ef/README.md`}
+				>
+					Read the source status<Icon name="external" size={18} />
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="section core-section">
+		<div class="container">
+			<div class="section-heading">
+				<div>
+					<p class="eyebrow">PORT STATUS AND TEST RESULTS</p>
+					<h2>Browse the port<br>and its test results.</h2>
+				</div>
+				<a class="text-link" href="/solidcore/progress/">
+					View progress dashboard<Icon size={18} />
+				</a>
+			</div>
+			<div class="process">
+				<div>
+					<span class="mono">01 / UNITS</span>
+					<h3>Unit status.</h3>
+					<p>
+						See which units are verified, partially ported, claimed, blocked, or
+						unstarted.
+					</p>
+					<a
+						class="text-link"
+						href="/solidcore/progress/units/"
+						style="margin-top:16px"
+					>
+						Browse units →
+					</a>
+				</div>
+				<div>
+					<span class="mono">02 / COMPARISON</span>
+					<h3>Rust vs. C++ tests.</h3>
+					<p>Compare results from the Rust port and original C++ code.</p>
+					<a
+						class="text-link"
+						href="/solidcore/progress/"
+						style="margin-top:16px"
+					>
+						Read the overview →
+					</a>
+				</div>
+				<div>
+					<span class="mono">03 / UPSTREAM</span>
+					<h3>Upstream bugs.</h3>
+					<p>Read bugs found in the original C++ code during porting.</p>
+					<a
+						class="text-link"
+						href="/solidcore/progress/issues/"
+						style="margin-top:16px"
+					>
+						Browse upstream issues →
+					</a>
+				</div>
+				<div>
+					<span class="mono">04 / INTERSECTIONS</span>
+					<h3>Intersection tests.</h3>
+					<p>
+						See how Rust and C++ handle the surface-intersection test cases.
+					</p>
+					<a
+						class="text-link"
+						href="/solidcore/progress/ssi/"
+						style="margin-top:16px"
+					>
+						View intersection tests →
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container" style="padding-block:48px">
+		<div class="notice">
+			<strong>License & attribution.</strong>
+			<br>
+			SolidCore is licensed under Apache-2.0 and includes notices for the
+			original SMLib code. It is an independent project, not affiliated with or
+			endorsed by NVIDIA.<a href="/licenses/#solidcore">
+				Read the attribution.
+			</a>
+		</div>
+	</section>
+	<ClosingCTA />
 </BaseLayout>

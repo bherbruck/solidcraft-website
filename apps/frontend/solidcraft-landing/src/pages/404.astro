@@ -1,21 +1,24 @@
 ---
-import Actions from '../components/Actions';
-import { site } from '../data/site';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Actions from "../components/Actions";
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Page not found · SolidCraft"
-  description="This page is not here. Return to SolidCraft, open the documentation, or try the browser app."
+	description="This page is not here. Return to SolidCraft, open the documentation, or try the browser app."
+	title="Page not found · SolidCraft"
 >
-  <section class="container error-page"
-    ><p class="eyebrow">404 / OUTSIDE THE SKETCH</p><h1>This page isn’t here.</h1
-    ><p class="lead"
-      >Head back to the canvas. Return to SolidCraft, open the documentation, or try the browser
-      app.</p
-    ><div class="actions"
-      ><a class="button primary" href="/">Back to SolidCraft →</a
-      ><a class="button secondary" href={site.docs}>Open documentation</a></div
-    ><div style="margin-top:16px"><Actions /></div></section
-  >
+	<section class="container error-page">
+		<p class="eyebrow">404 / OUTSIDE THE SKETCH</p>
+		<h1>This page isn’t here.</h1>
+		<p class="lead">
+			Head back to the canvas. Return to SolidCraft, open the documentation, or
+			try the browser app.
+		</p>
+		<div class="actions">
+			<a class="button primary" href="/">Back to SolidCraft →</a>
+			<a class="button secondary" href={site.docs}>Open documentation</a>
+		</div>
+		<div style="margin-top:16px"><Actions /></div>
+	</section>
 </BaseLayout>
