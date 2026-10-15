@@ -1,0 +1,144 @@
+/* Native website presentation for trusted, pinned upstream report bodies. */
+.progress-page { color-scheme: dark; }
+.progress-bar { border-bottom: 1px solid var(--line); background: var(--surface); }
+.progress-bar-inner { display: flex; align-items: center; gap: 36px; min-height: 66px; }
+.progress-back,.progress-repository { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; font-size: 14px; white-space: nowrap; }
+.progress-back { color: var(--muted); }
+.progress-back svg { rotate: 180deg; }
+.progress-repository { margin-left: auto; color: var(--link); }
+.progress-bar nav { display: flex; align-self: stretch; gap: 28px; }
+.progress-bar nav a { display: flex; align-items: center; padding-block: 16px; border-bottom: 2px solid transparent; color: var(--muted); text-decoration: none; font-size: 14px; white-space: nowrap; }
+.progress-bar nav a:hover,.progress-bar nav a[aria-current] { color: var(--ink); border-color: var(--blue); }
+.progress-report { padding-block: 44px 72px; min-width: 0; }
+.progress-source { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-bottom: 36px; }
+.progress-source .eyebrow { margin: 0; }
+.progress-source > p:last-child { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--muted); }
+.source-date { padding-left: 12px; border-left: 1px solid var(--line); }
+.snapshot-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+.progress-content { --green: #55c6a1; --partial: #609eec; --green-ink: #85dfbc; --partial-ink: #a9cdff; --bad-ink: #ffafab; --grid: #3b4657; }
+.progress-content a { color: var(--link); text-decoration: underline; }
+.progress-content a:hover { text-decoration: underline; }
+.progress-content p { max-width: 88ch; margin-bottom: 16px; color: var(--muted); }
+.progress-content strong { color: var(--ink); font-weight: 550; }
+.progress-content h1 { font-size: clamp(32px, 4.4vw, 60px); margin-bottom: 24px; overflow-wrap: anywhere; }
+.progress-content h1 code { font-size: .85em; background: none; padding: 0; }
+.progress-content h1 .badge { letter-spacing: 0; margin-left: 12px; }
+.progress-content h2 { font-size: clamp(25px, 2.8vw, 32px); margin: 44px 0 16px; }
+.progress-content h3 { font-size: 20px; margin: 24px 0 12px; }
+.progress-content section + section { margin-top: 48px; }
+.progress-content .progress-intro { margin-bottom: 32px; }
+.progress-content .progress-lead { font-size: 21px; line-height: 1.6; max-width: 65ch; }
+.progress-content .methodology { margin-top: 28px; max-width: 90ch; }
+.progress-content details > p { margin: 16px 0; }
+.progress-content summary { color: var(--link); font-size: 14px; padding-block: 8px; }
+.progress-content ul { padding-left: 22px; color: var(--muted); }
+.progress-content li { margin-bottom: 6px; }
+.progress-content code { padding: 2px 4px; background: var(--surface); border-radius: 3px; }
+.progress-content .kpis { display: grid; grid-template-columns: 2.2fr repeat(4, 1fr); gap: 12px; }
+.progress-content .tile { border: 1px solid var(--line); border-radius: 5px; background: var(--surface); padding: 24px; min-width: 0; }
+.progress-content .tile.big { background: linear-gradient(135deg, #1c3455, var(--surface)); border-color: #476e9f; }
+.progress-content .tile .k { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+.progress-content .tile .v { font-size: clamp(30px, 3vw, 44px); font-weight: 500; line-height: 1.2; letter-spacing: -.04em; font-variant-numeric: tabular-nums; margin-bottom: 8px; }
+.progress-content .tile.big .v { color: var(--ink); }
+.progress-content .tile .sub { font-size: 12px; line-height: 1.6; color: var(--muted); }
+.progress-content .tile:last-child { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 12px; background: none; border: 0; padding: 4px 0; }
+.progress-content .tile:last-child .k { order: 1; margin: 0; }
+.progress-content .tile:last-child .v { font-size: 15px; letter-spacing: 0; margin: 0; }
+.progress-content .tile:last-child .sub { order: 2; }
+.progress-content .badge { display: inline-block; padding: 3px 8px; border: 1px solid transparent; border-radius: 4px; font: 400 11px/1.5 'IBM Plex Mono', monospace; white-space: nowrap; }
+.progress-content .s-green { background: #16382f; color: var(--green-ink); border-color: #315b4c; }
+.progress-content .s-partial { background: #203856; color: var(--partial-ink); border-color: #3d608a; }
+.progress-content .s-claimed { background: #342c4e; color: #d1bfff; border-color: #58476f; }
+.progress-content .s-todo,.progress-content .s-\? { background: #2c333f; color: #c5cdd9; border-color: #4a5566; }
+.progress-content .s-blocked { background: #452e33; color: var(--bad-ink); border-color: #6b4146; }
+.progress-content .scroll { overflow: auto; max-width: 100%; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); }
+.progress-content .scroll.narrow { max-width: 520px; }
+.progress-content table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.65; }
+.progress-content th,.progress-content td { text-align: left; padding: 13px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.progress-content th { background: var(--surface-strong); color: var(--ink); font-size: 12px; font-weight: 500; white-space: nowrap; }
+.progress-content tbody tr:last-child td { border-bottom: 0; }
+.progress-content tbody tr:hover { background: #26303d; }
+.progress-content td { color: var(--muted); }
+.progress-content td.num,.progress-content th.num { text-align: right; font: 400 12px/1.8 'IBM Plex Mono', monospace; white-space: nowrap; }
+.progress-content th[data-sort] { cursor: pointer; }
+.progress-content th[data-sort]::after { content: ' ↕'; color: var(--muted); }
+.progress-content th[aria-sort='ascending']::after { content: ' ↑'; color: var(--blue); }
+.progress-content th[aria-sort='descending']::after { content: ' ↓'; color: var(--blue); }
+.progress-content td.blk { min-width: 220px; font-size: 12px; }
+.progress-content td.flags { min-width: 220px; font-size: 12px; }
+.progress-content td.flags ul { margin: 0; padding-left: 16px; }
+.progress-content td code { white-space: nowrap; background: transparent; padding: 0; }
+.progress-content .barcell { width: 40%; min-width: 160px; }
+.progress-content .bar { display: flex; height: 7px; border-radius: 3px; overflow: hidden; background: var(--surface-strong); margin-top: 8px; }
+.progress-content .bar i { display: block; height: 100%; }
+.progress-content .bar i.green,.progress-content .sw.green { background: var(--green); }
+.progress-content .bar i.partial,.progress-content .sw.partial { background: var(--partial); }
+.progress-content .filters { display: flex; gap: 16px; flex-wrap: wrap; align-items: end; padding: 20px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); margin: 28px 0 20px; }
+.progress-content .filters label { display: flex; flex-direction: column; flex: 1 1 150px; gap: 8px; color: var(--muted); font-size: 12px; }
+.progress-content .filters input,.progress-content .filters select { width: 100%; min-width: 0; padding: 10px 12px; min-height: 44px; border: 1px solid #65748a; border-radius: 3px; background: var(--canvas); color: var(--ink); font-size: 14px; }
+.progress-content .filters .count { font-size: 12px; color: var(--muted); margin-left: auto; padding-block: 12px; }
+.progress-content .legend { display: flex; flex-wrap: wrap; gap: 12px 24px; color: var(--muted); font-size: 12px; margin: 16px 0; }
+.progress-content .sw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 8px; }
+.progress-content .chartbox { position: relative; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); padding: 24px; }
+.progress-content .chart { width: 100%; max-height: 400px; height: auto; display: block; }
+.progress-content .chart .grid { stroke: var(--grid); stroke-width: 1; }
+.progress-content .chart .grid.v { stroke-dasharray: 2 4; }
+.progress-content .chart .tick { fill: var(--muted); font: 11px 'IBM Plex Mono', monospace; }
+.progress-content .chart .area.green { fill: var(--green); opacity: .2; }
+.progress-content .chart .area.partial { fill: var(--partial); opacity: .18; }
+.progress-content .chart .line { fill: none; stroke-width: 2; stroke-linejoin: round; }
+.progress-content .chart .line.green,.progress-content .chart .dot.green { stroke: var(--green); }
+.progress-content .chart .line.partial,.progress-content .chart .dot.partial { stroke: var(--partial); }
+.progress-content .chart .dot { fill: var(--surface); stroke-width: 2; }
+.progress-content .chart .cross { stroke: var(--muted); stroke-width: 1; }
+.progress-content .chart .hit { fill: transparent; }
+.progress-content .tip { position: absolute; pointer-events: none; padding: 12px; border: 1px solid #728199; border-radius: 4px; background: var(--canvas); color: var(--ink); font-size: 12px; box-shadow: 0 8px 24px #0004; white-space: nowrap; }
+.progress-content .tableview .scroll { max-height: 320px; margin-top: 8px; }
+.progress-content dl.facts { display: flex; flex-wrap: wrap; gap: 20px 32px; margin: 24px 0; padding: 24px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); }
+.progress-content dl.facts div { min-width: 80px; }
+.progress-content dt { color: var(--muted); font-size: 12px; margin-bottom: 5px; }
+.progress-content dd { margin: 0; font-size: 16px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.progress-content .crumbs { font-size: 13px; margin: 0 0 20px; }
+.progress-content .notes,.progress-content .tests { overflow-wrap: anywhere; }
+.progress-content .issue { padding: 4px 24px 16px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); margin-bottom: 16px; }
+.progress-content .issue h3 { font-size: 18px; line-height: 1.45; overflow-wrap: anywhere; }
+.progress-content .issue .anchor { color: var(--ink); }
+.progress-content .issue .meta { margin-block: 12px; }
+.progress-content .issue li { overflow-wrap: anywhere; }
+.progress-content .issue:target { border-color: var(--blue); outline: 1px solid var(--blue); }
+.progress-content .tag { display: inline-block; padding: 2px 7px; margin-right: 6px; border: 1px solid var(--line); border-radius: 3px; font-size: 11px; background: var(--surface-strong); color: var(--muted); }
+.progress-content .tag.c-yes { color: var(--green-ink); }
+.progress-content .chip { display: inline-flex; align-items: center; gap: 5px; margin: 0 8px 6px 0; font-size: 13px; }
+.progress-content .v { font: 400 12px 'IBM Plex Mono', monospace; white-space: nowrap; }
+.progress-content .v-PASS { color: var(--green-ink); }
+.progress-content .v-DEFERRED { color: var(--muted); }
+.progress-content .v-INCOMPLETE,.progress-content .v-WRONG-TOPOLOGY,.progress-content .v-ERROR,.progress-content .v-FAIL { color: var(--bad-ink); }
+.progress-content .warn { padding: 14px 18px; background: #40351f; color: #edcf91; border-left: 2px solid #bba165; font-size: 14px; }
+.progress-provenance { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; border-top: 1px solid var(--line); margin-top: 56px; padding-top: 32px; color: var(--muted); font-size: 13px; }
+.progress-provenance .eyebrow { margin-bottom: 12px; }
+.progress-provenance a { color: var(--link); }
+.progress-content [hidden] { display: none !important; }
+@media (max-width: 1000px) {
+  .progress-content .kpis { grid-template-columns: repeat(4, 1fr); }
+  .progress-content .tile.big { grid-column: 1 / -1; }
+  .progress-bar-inner { gap: 24px; flex-wrap: wrap; padding-block: 12px 0; }
+  .progress-bar nav { order: 3; width: 100%; gap: 24px; }
+}
+@media (max-width: 600px) {
+  .progress-report { padding-top: 28px; }
+  .progress-source { margin-bottom: 28px; }
+  .progress-source > p:last-child { font-size: 11px; }
+  .source-date { width: 100%; border: 0; padding-left: 0; }
+  .progress-content .progress-lead { font-size: 18px; }
+  .progress-content .kpis { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .progress-content .tile { padding: 20px; }
+  .progress-content .tile:last-child { flex-wrap: wrap; gap: 4px 10px; }
+  .progress-content .tile:last-child .sub { flex-basis: 100%; }
+  .progress-bar nav { gap: 20px; overflow-x: auto; }
+  .progress-bar nav a { font-size: 12px; }
+  .progress-content .chartbox { padding: 8px; }
+  .progress-content th,.progress-content td { padding: 12px; }
+  .progress-content .issue { padding-inline: 16px; }
+  .progress-provenance { grid-template-columns: 1fr; gap: 20px; }
+  .progress-content dl.facts { padding: 18px; gap: 18px; }
+}
