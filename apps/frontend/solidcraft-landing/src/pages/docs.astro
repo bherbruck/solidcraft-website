@@ -1,17 +1,63 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
-import { site, guide } from '../data/site';
+import { guide, site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
 const resources = [
-  { title: 'Getting started', text: 'Install a desktop build, open the browser app, and make your first part.', href: guide('getting-started') },
-  { title: 'Modeling guide', text: 'Sketches, constraints, solid features, parameters, and supported workflows.', href: guide('sketching') },
-  { title: 'MCP & CLI', text: 'Set up an MCP client, inspect designs, and run modeling scripts.', href: guide('mcp') },
-  { title: 'File exchange', text: 'Import/export formats and the data each format preserves.', href: guide('files') },
-  { title: 'Developer guide', text: 'Build from source, run tests, and contribute code.', href: `${site.docs}dev/contributing.html` },
-  { title: 'Command reference', text: 'Look up the operations exposed by SolidCraft’s command engine.', href: `${site.docs}reference/commands.html` },
+  {
+    title: 'Getting started',
+    text: 'Install a desktop build, open the browser app, and make your first part.',
+    href: guide('getting-started'),
+  },
+  {
+    title: 'Modeling guide',
+    text: 'Sketches, constraints, solid features, parameters, and supported workflows.',
+    href: guide('sketching'),
+  },
+  {
+    title: 'MCP & CLI',
+    text: 'Set up an MCP client, inspect designs, and run modeling scripts.',
+    href: guide('mcp'),
+  },
+  {
+    title: 'File exchange',
+    text: 'Import/export formats and the data each format preserves.',
+    href: guide('files'),
+  },
+  {
+    title: 'Developer guide',
+    text: 'Build from source, run tests, and contribute code.',
+    href: `${site.docs}dev/contributing.html`,
+  },
+  {
+    title: 'Command reference',
+    text: 'Look up the operations exposed by SolidCraft’s command engine.',
+    href: `${site.docs}reference/commands.html`,
+  },
 ];
 ---
-<BaseLayout title="Documentation · SolidCraft" description="SolidCraft installation and modeling guides, MCP setup, supported file formats, developer documentation, and command reference.">
-  <section class="page-intro container"><p class="eyebrow">GUIDES AND REFERENCE</p><h1>SolidCraft documentation.</h1><p class="lead">Installation, modeling, MCP setup, and developer documentation are in the SolidCraft book.</p><div class="actions"><a class="button primary" href={site.docs}>Open documentation <Icon name="external" size={18} /></a><a class="text-link" href={site.app}>Try in your browser <Icon size={18} /></a></div></section>
-  <section class="container resource-grid" aria-label="Documentation topics">{resources.map((resource) => <a class="resource" href={resource.href}><h2>{resource.title}</h2><Icon name="external" /><p>{resource.text}</p></a>)}</section>
+
+<BaseLayout
+  title="Documentation · SolidCraft"
+  description="SolidCraft installation and modeling guides, MCP setup, supported file formats, developer documentation, and command reference."
+>
+  <section class="page-intro container"
+    ><p class="eyebrow">GUIDES AND REFERENCE</p><h1>SolidCraft documentation.</h1
+    ><p class="lead"
+      >Installation, modeling, MCP setup, and developer documentation are in the SolidCraft book.</p
+    ><div class="actions"
+      ><a class="button primary" href={site.docs}
+        >Open documentation <Icon name="external" size={18} /></a
+      ><a class="text-link" href={site.app}>Try in your browser <Icon size={18} /></a></div
+    ></section
+  >
+  <section class="container resource-grid" aria-label="Documentation topics"
+    >{resources.map((resource) => (
+      <a class="resource" href={resource.href}>
+        <h2>{resource.title}</h2>
+        <Icon name="external" />
+        <p>{resource.text}</p>
+      </a>
+    ))}</section
+  >
 </BaseLayout>

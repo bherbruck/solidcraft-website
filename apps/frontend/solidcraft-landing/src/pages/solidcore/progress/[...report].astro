@@ -1,14 +1,21 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Icon from '../../../components/Icon.astro';
 import ProgressReport from '../../../components/ProgressReport';
-import { progressPages } from '../../../lib/progress-routes';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 import type { ProgressPage } from '../../../lib/progress-routes';
+import { progressPages } from '../../../lib/progress-routes';
 import '../../../styles/progress.css';
 export function getStaticPaths() {
-  return progressPages.map((page) => ({ params: { report: page.path.slice('/solidcore/progress/'.length).replace(/\/$/, '') || undefined }, props: { page } }));
+  return progressPages.map((page) => ({
+    params: {
+      report: page.path.slice('/solidcore/progress/'.length).replace(/\/$/, '') || undefined,
+    },
+    props: { page },
+  }));
 }
-interface Props { page: ProgressPage; }
+interface Props {
+  page: ProgressPage;
+}
 const { page } = Astro.props;
 const tabs = [
   { label: 'Overview', kind: 'overview', href: '/solidcore/progress/' },
@@ -17,7 +24,32 @@ const tabs = [
   { label: 'SSI corpus', kind: 'ssi', href: '/solidcore/progress/ssi/' },
 ];
 ---
-<BaseLayout title={`${page.heading} · SolidCraft`} description="Live SolidCore port progress, unit-level test results, upstream issues, and surface-intersection tests." class="progress-page">
-  <div class="progress-bar"><div class="container progress-bar-inner"><a class="progress-back" href="/solidcore/"><Icon name="arrow" size={16} /> SolidCore</a><nav aria-label="Progress navigation">{tabs.map((tab) => <a href={tab.href} aria-current={(page.kind === 'unit' ? tab.kind === 'units' : page.kind === tab.kind) ? 'page' : undefined}>{tab.label}</a>)}</nav><a class="progress-repository" href="https://github.com/bherbruck/solidcore">Repository <Icon name="external" size={16} /></a></div></div>
+
+<BaseLayout
+  title={`${page.heading} · SolidCraft`}
+  description="Live SolidCore port progress, unit-level test results, upstream issues, and surface-intersection tests."
+  class="progress-page"
+>
+  <div class="progress-bar"
+    ><div class="container progress-bar-inner"
+      ><a class="progress-back" href="/solidcore/"><Icon name="arrow" size={16} /> SolidCore</a
+      ><nav aria-label="Progress navigation"
+        >{tabs.map((tab) => (
+          <a
+            href={tab.href}
+            aria-current={
+              (page.kind === 'unit' ? tab.kind === 'units' : page.kind === tab.kind)
+                ? 'page'
+                : undefined
+            }
+          >
+            {tab.label}
+          </a>
+        ))}</nav
+      ><a class="progress-repository" href="https://github.com/bherbruck/solidcore"
+        >Repository <Icon name="external" size={16} /></a
+      ></div
+    ></div
+  >
   <div class="container progress-report"><ProgressReport page={page} client:load /></div>
 </BaseLayout>

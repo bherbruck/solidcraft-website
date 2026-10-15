@@ -1,6 +1,6 @@
 import { createStore } from 'zustand/vanilla';
-import { parseOnlineProgress, type OnlineProgress } from '../lib/progress-client';
-import { progressOrigin, type ProgressPage } from '../lib/progress-routes';
+import { type OnlineProgress, parseOnlineProgress } from '../lib/progress-client';
+import { type ProgressPage, progressOrigin } from '../lib/progress-routes';
 
 export const progressRefreshInterval = 5 * 60_000;
 interface ProgressState {
@@ -14,16 +14,23 @@ export function createProgressStore(page: ProgressPage) {
   let controller: AbortController | undefined;
   let lastAttempt = 0;
   return createStore<ProgressState>()((set) => ({
-    phase: 'loading', report: null,
+    phase: 'loading',
+    report: null,
     load: async (url, force = false) => {
       if (!force && Date.now() - lastAttempt < progressRefreshInterval) return;
       lastAttempt = Date.now();
       controller?.abort();
-      const request = new AbortController(); controller = request;
+      const request = new AbortController();
+      controller = request;
       set({ phase: 'loading', report: null });
       try {
-        const response = await fetch(url, { cache: 'no-store', credentials: 'omit', signal: AbortSignal.any([request.signal, AbortSignal.timeout(10_000)]) });
-        if (!response.ok || !response.url.startsWith(progressOrigin)) throw new Error('Upstream request failed.');
+        const response = await fetch(url, {
+          cache: 'no-store',
+          credentials: 'omit',
+          signal: AbortSignal.any([request.signal, AbortSignal.timeout(10_000)]),
+        });
+        if (!response.ok || !response.url.startsWith(progressOrigin))
+          throw new Error('Upstream request failed.');
         const report = parseOnlineProgress(await response.text(), url, page);
         if (!request.signal.aborted) set({ phase: 'ready', report });
       } catch {

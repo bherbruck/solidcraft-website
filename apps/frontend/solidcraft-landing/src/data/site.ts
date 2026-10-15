@@ -18,4 +18,18 @@ export const nav = [
   { label: 'Docs', href: site.docs },
   { label: 'GitHub', href: site.repo },
 ];
-export const routes = ['/', '/features/', '/mcp/', '/solidcore/', '/download/', '/showcase/', '/showcase/pi-enclosure/', '/showcase/selene/', '/releases/', '/docs/', '/disclaimer/', '/licenses/', '/privacy/'];
+export const routes = [
+  '/',
+  '/features/',
+  '/mcp/',
+  '/solidcore/',
+  '/download/',
+  '/showcase/',
+  '/showcase/pi-enclosure/',
+  '/showcase/selene/',
+  '/releases/',
+  '/docs/',
+  '/disclaimer/',
+  '/licenses/',
+  '/privacy/',
+];

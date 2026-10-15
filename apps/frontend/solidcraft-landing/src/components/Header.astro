@@ -2,12 +2,22 @@
 import { nav } from '../data/site';
 import Actions from './Actions';
 import MobileMenu from './MobileMenu';
+
 const path = Astro.url.pathname;
 ---
+
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="SolidCraft home"><img src="/brand/solidcraft.svg" width="36" height="36" alt="" /><span>SolidCraft</span></a>
-    <nav class="desktop-nav" aria-label="Main navigation">{nav.map((item) => <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}</nav>
+    <a class="brand" href="/" aria-label="SolidCraft home"
+      ><img src="/brand/solidcraft.svg" width="36" height="36" alt=""><span>SolidCraft</span></a
+    >
+    <nav class="desktop-nav" aria-label="Main navigation"
+      >{nav.map((item) => (
+        <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}</nav
+    >
     <div class="desktop-actions"><Actions compact /></div>
     <MobileMenu path={path} client:media="(max-width: 1200px)" />
   </div>

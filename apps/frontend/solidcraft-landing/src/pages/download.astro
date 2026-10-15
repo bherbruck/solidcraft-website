@@ -1,25 +1,141 @@
 ---
-import LiveRelease from '../components/LiveRelease.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Icon from '../components/Icon.astro';
 import DownloadSelector from '../components/DownloadSelector';
+import Icon from '../components/Icon.astro';
+import LiveRelease from '../components/LiveRelease.astro';
 import PlatformDownload from '../components/PlatformDownload';
 import snapshot from '../data/releases.json';
-import { snapshotSchema, formatDate, isStale } from '../lib/releases';
 import { guide, site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDate, isStale, snapshotSchema } from '../lib/releases';
+
 const release = snapshotSchema.parse(snapshot);
 ---
-<BaseLayout title="Download SolidCraft · Desktop and CLI packages" description="Choose a SolidCraft package for Windows, macOS, Linux, or FreeBSD. Find release notes, checksums, and CLI installation guidance.">
-  <section class="page-intro container"><p class="eyebrow">DESKTOP DOWNLOADS</p><h1>Download SolidCraft.</h1><p class="lead">Choose the package for your system, or open SolidCraft in your browser without installing a desktop build.</p><div class="actions"><PlatformDownload client:load /><a class="text-link" href={guide('getting-started')}>Installation guide <Icon name="external" size={18} /></a></div></section>
-  <section id="packages" class="container downloads-section" aria-labelledby="packages-heading"><h2 id="packages-heading" class="sr-only">Desktop packages</h2>
-    <div class="release-meta"><span class="badge" data-release-tag>{release.tag}</span><span>Released <span data-release-date>{formatDate(release.publishedAt)}</span></span><a data-release-notes href={release.notes}>Release notes ↗</a><a data-release-checksums href={release.checksums ?? undefined} hidden={!release.checksums}>SHA-256 checksums ↗</a></div>
-    {isStale(release.observedAt) && <p class="notice" data-release-stale>These package details were last checked on {formatDate(release.observedAt)}. <a href={site.releases}>Check upstream for newer releases.</a></p>}
+
+<BaseLayout
+  title="Download SolidCraft · Desktop and CLI packages"
+  description="Choose a SolidCraft package for Windows, macOS, Linux, or FreeBSD. Find release notes, checksums, and CLI installation guidance."
+>
+  <section class="page-intro container"
+    ><p class="eyebrow">DESKTOP DOWNLOADS</p><h1>Download SolidCraft.</h1
+    ><p class="lead"
+      >Choose the package for your system, or open SolidCraft in your browser without installing a
+      desktop build.</p
+    ><div class="actions"
+      ><PlatformDownload client:load />
+      <a class="text-link" href={guide('getting-started')}
+        >Installation guide <Icon name="external" size={18} /></a
+      ></div
+    ></section
+  >
+  <section id="packages" class="container downloads-section" aria-labelledby="packages-heading"
+    ><h2 id="packages-heading" class="sr-only">Desktop packages</h2>
+    <div class="release-meta"
+      ><span class="badge" data-release-tag>{release.tag}</span
+      ><span>Released <span data-release-date>{formatDate(release.publishedAt)}</span></span
+      ><a data-release-notes href={release.notes}>Release notes ↗</a
+      ><a data-release-checksums href={release.checksums ?? undefined} hidden={!release.checksums}
+        >SHA-256 checksums ↗</a
+      ></div
+    >
+    {isStale(release.observedAt) && (
+      <p class="notice" data-release-stale>
+        These package details were last checked on {formatDate(release.observedAt)}.{' '}
+        <a href={site.releases}>Check upstream for newer releases.</a>
+      </p>
+    )}
     <DownloadSelector client:load />
-    <noscript><p class="notice">The saved package list is shown. Enable JavaScript for live updates and filters, or check GitHub Releases for the latest downloads.</p></noscript>
-    <p class="small muted" style="margin-top:24px"><span data-release-status>Package details checked {formatDate(release.observedAt)}. Enable JavaScript for live release updates.</span> <a href={site.releases}>Check GitHub Releases.</a> Files are served directly by the upstream GitHub release. Signing has not been independently verified here.</p>
+    <noscript
+      ><p class="notice"
+        >The saved package list is shown. Enable JavaScript for live updates and filters, or check
+        GitHub Releases for the latest downloads.</p
+      ></noscript
+    >
+    <p class="small muted" style="margin-top:24px"
+      ><span data-release-status
+        >Package details checked {formatDate(release.observedAt)}. Enable JavaScript for live
+        release updates.</span
+      > <a href={site.releases}>Check GitHub Releases.</a> Files are served directly by the upstream
+      GitHub release. Signing has not been independently verified here.</p
+    >
   </section>
-  <section class="section section-alt"><div class="container"><div class="section-heading"><div><p class="eyebrow">PACKAGE GUIDE</p><h2>Choose a package.</h2></div></div><div class="two-column"><div><h3>Platform & architecture</h3><div class="prose"><p>On Windows, x64 is for most Intel and AMD PCs. ARM64 is for Windows on ARM. The x86 build supports 32-bit systems.</p><p>The macOS Universal package includes Apple silicon and Intel builds. For Linux, choose x64 or ARM64 to match your processor, then select your preferred package format.</p><a class="text-link" href={guide('getting-started')}>Read the installation notes <Icon size={18} /></a></div></div><div><h3>Packages & verification</h3><div class="prose"><p>Use an installer or disk image for a standard desktop setup. Portable archives and Linux packages provide alternatives for your environment.</p><p>Verify checksums against the upstream release. A matching checksum confirms the expected bytes; it does not establish a publisher signature.</p><a class="text-link" data-release-checksums href={release.checksums ?? undefined} hidden={!release.checksums}>View release checksums <Icon name="external" size={18} /></a></div></div></div></div></section>
-  <section class="section" id="cli"><div class="container story-grid"><div><p class="eyebrow">AUTOMATION & AGENTS</p><h2>Looking for the CLI?</h2><p class="lead">SolidCraft’s command line runs scripts, inspects designs, exports files, and exposes the local MCP server.</p></div><div class="prose"><p>The macOS CLI is a separate Universal ZIP listed above. For other platforms, follow the maintained installation instructions to find or build the right executable. Desktop package contents vary.</p><div class="actions"><a class="button primary" href={guide('mcp')}>CLI & MCP setup <Icon size={18} /></a><a class="text-link" href="/mcp/">MCP setup and tools</a></div></div></div></section>
-  <section class="container" style="padding-bottom:80px"><div class="notice"><strong>Compatibility note for v0.12.0</strong><br />Designs saved by 0.12.0 use file format 21 and cannot be opened in 0.11.x or earlier. Keep backups before upgrading. <a href="https://github.com/bherbruck/solidcraft/releases/tag/v0.12.0">Read the compatibility notes.</a></div><details class="prose"><summary>Development builds, Flatpak, and building from source</summary><p>Nightly builds are available on <a href={site.releases}>GitHub Releases</a>. They are kept separate from the latest stable release. Follow <a href={guide('getting-started')}>Getting started</a> for source builds and the existing Flatpak feed.</p></details></section>
+  <section class="section section-alt"
+    ><div class="container"
+      ><div class="section-heading"
+        ><div
+          ><p class="eyebrow">PACKAGE GUIDE</p><h2>Choose a package.</h2></div
+        ></div
+      ><div class="two-column"
+        ><div
+          ><h3>Platform & architecture</h3
+          ><div class="prose"
+            ><p
+              >On Windows, x64 is for most Intel and AMD PCs. ARM64 is for Windows on ARM. The x86
+              build supports 32-bit systems.</p
+            ><p
+              >The macOS Universal package includes Apple silicon and Intel builds. For Linux,
+              choose x64 or ARM64 to match your processor, then select your preferred package
+              format.</p
+            ><a class="text-link" href={guide('getting-started')}
+              >Read the installation notes <Icon size={18} /></a
+            ></div
+          ></div
+        ><div
+          ><h3>Packages & verification</h3
+          ><div class="prose"
+            ><p
+              >Use an installer or disk image for a standard desktop setup. Portable archives and
+              Linux packages provide alternatives for your environment.</p
+            ><p
+              >Verify checksums against the upstream release. A matching checksum confirms the
+              expected bytes; it does not establish a publisher signature.</p
+            ><a
+              class="text-link"
+              data-release-checksums
+              href={release.checksums ?? undefined}
+              hidden={!release.checksums}
+              >View release checksums <Icon name="external" size={18} /></a
+            ></div
+          ></div
+        ></div
+      ></div
+    ></section
+  >
+  <section class="section" id="cli"
+    ><div class="container story-grid"
+      ><div
+        ><p class="eyebrow">AUTOMATION & AGENTS</p><h2>Looking for the CLI?</h2
+        ><p class="lead"
+          >SolidCraft’s command line runs scripts, inspects designs, exports files, and exposes the
+          local MCP server.</p
+        ></div
+      ><div class="prose"
+        ><p
+          >The macOS CLI is a separate Universal ZIP listed above. For other platforms, follow the
+          maintained installation instructions to find or build the right executable. Desktop
+          package contents vary.</p
+        ><div class="actions"
+          ><a class="button primary" href={guide('mcp')}>CLI & MCP setup <Icon size={18} /></a
+          ><a class="text-link" href="/mcp/">MCP setup and tools</a></div
+        ></div
+      ></div
+    ></section
+  >
+  <section class="container" style="padding-bottom:80px"
+    ><div class="notice"
+      ><strong>Compatibility note for v0.12.0</strong><br>Designs saved by 0.12.0 use file format 21
+      and cannot be opened in 0.11.x or earlier. Keep backups before upgrading.
+      <a href="https://github.com/bherbruck/solidcraft/releases/tag/v0.12.0"
+        >Read the compatibility notes.</a
+      ></div
+    ><details class="prose"
+      ><summary>Development builds, Flatpak, and building from source</summary
+      ><p
+        >Nightly builds are available on <a href={site.releases}>GitHub Releases</a>. They are kept
+        separate from the latest stable release. Follow
+        <a href={guide('getting-started')}>Getting started</a>
+        for source builds and the existing Flatpak feed.</p
+      ></details
+    ></section
+  >
   <LiveRelease />
 </BaseLayout>

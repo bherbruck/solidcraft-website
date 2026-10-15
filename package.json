@@ -17,6 +17,14 @@
     "test:e2e": "pnpm --filter @solidcraft/solidcraft-landing run test:e2e",
     "test:dev": "pnpm --filter @solidcraft/solidcraft-landing run test:dev",
     "preview": "pnpm --filter @solidcraft/solidcraft-landing run preview",
-    "releases:refresh": "pnpm --filter @solidcraft/solidcraft-landing run releases:refresh"
+    "releases:refresh": "pnpm --filter @solidcraft/solidcraft-landing run releases:refresh",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "format:check": "biome format ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15"
   }
 }

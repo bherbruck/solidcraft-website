@@ -18,6 +18,8 @@ jobs:
           node-version-file: .node-version
       - run: npm install --global pnpm@12.10.1
       - run: pnpm install --frozen-lockfile
+      - run: pnpm exec biome ci .
+        working-directory: .
       - run: pnpm typecheck
       - run: pnpm test:unit
       - run: pnpm build

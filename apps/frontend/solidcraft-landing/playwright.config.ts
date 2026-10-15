@@ -9,5 +9,10 @@ export default defineConfig({
   reporter: [['list'], ['html', { open: 'never' }]],
   use: { baseURL: 'http://127.0.0.1:4322', trace: 'retain-on-failure' },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
-  webServer: { command: 'python3 scripts/serve-review.py', url: 'http://127.0.0.1:4322', reuseExistingServer: !process.env.CI, timeout: 20_000 },
+  webServer: {
+    command: 'python3 scripts/serve-review.py',
+    url: 'http://127.0.0.1:4322',
+    reuseExistingServer: !process.env.CI,
+    timeout: 20_000,
+  },
 });

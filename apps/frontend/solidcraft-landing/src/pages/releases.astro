@@ -1,16 +1,85 @@
 ---
-import LiveRelease from '../components/LiveRelease.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
-import { formatDate } from '../lib/releases';
+import LiveRelease from '../components/LiveRelease.astro';
 import snapshot from '../data/releases.json';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDate } from '../lib/releases';
+
 // This edited article describes v0.12.0 even when the fallback snapshot is refreshed.
-const release = { tag: 'v0.12.0', publishedAt: '2026-10-15T00:00:00Z', notes: 'https://github.com/bherbruck/solidcraft/releases/tag/v0.12.0' };
+const release = {
+  tag: 'v0.12.0',
+  publishedAt: '2026-10-15T00:00:00Z',
+  notes: 'https://github.com/bherbruck/solidcraft/releases/tag/v0.12.0',
+};
+
 import { site } from '../data/site';
 ---
-<BaseLayout title="Release notes · SolidCraft" description="Read highlights from SolidCraft v0.12.0: rendering, surface modeling, sheet-metal tools, window updates, and important file compatibility information.">
-  <section class="container" style="padding-top:48px"><div class="release-meta"><span class="badge" data-release-tag>{snapshot.tag}</span><span>Released <span data-release-date>{formatDate(snapshot.publishedAt)}</span></span><a data-release-notes href={snapshot.notes}>Latest upstream release notes ↗</a><a href="/download/">Download latest release ↗</a></div><p class="small muted" data-release-status>Saved release details. Enable JavaScript for live updates.</p></section>
-  <section class="page-intro container"><p class="eyebrow">V0.12.0 HIGHLIGHTS</p><h1>A little more room to create.</h1><p class="lead">SolidCraft {release.tag} brings new rendering, surface and sheet-metal tools, plus a cleaner window. Here are a few highlights from the upstream release.</p></section>
-  <article class="container article" style="padding-top:0"><div class="release-meta"><span class="badge">{release.tag}</span><span>{formatDate(release.publishedAt)}</span><a href={release.notes}>Full upstream release notes ↗</a></div><div class="prose"><h2>Rendering & display</h2><p>A Render workspace, named render setups, physically based materials in the product preview, and PNG output. Display-quality presets and optional supersampling offer more control over the viewport.</p><h2>Modeling & surfaces</h2><p>Smart Extrude improvements, new surface tools, and updates to fillets, chamfers, sketches, and assemblies. Read the full release notes for each operation’s scope and linked changes.</p><h2>Sheet-metal handoff</h2><p>Flat-pattern DXF gains role-based layers, dashed bend lines, and bend notes. Conversion and corner handling receive improvements as well.</p><h2>A cleaner workspace</h2><p>Updated title-bar navigation, touchpad and Blender navigation presets, an “Orbit around” choice, and additional language support.</p><h2>MCP & reliability</h2><p>The release includes MCP camera control and replay improvements, a compact component list for large assemblies, and bridge startup improvements.</p><div class="notice"><strong>File compatibility</strong><br />Designs saved by 0.12.0 use file format 21 and cannot be opened in 0.11.x or earlier. Older designs can open and rebuild in the new release. Keep backups of important work.</div><div class="actions"><a class="button primary" href="/download/">Download latest release <Icon name="download" size={18} /></a><a class="text-link" href={release.notes}>Read all changes <Icon name="external" size={18} /></a></div><h2>Looking for another build?</h2><p>Older releases, current upstream updates, nightly builds, and their checksums remain available on <a href={site.releases}>GitHub Releases</a>. The website’s package snapshot was checked on {formatDate(snapshot.observedAt)}.</p></div></article>
+
+<BaseLayout
+  title="Release notes · SolidCraft"
+  description="Read highlights from SolidCraft v0.12.0: rendering, surface modeling, sheet-metal tools, window updates, and important file compatibility information."
+>
+  <section class="container" style="padding-top:48px"
+    ><div class="release-meta"
+      ><span class="badge" data-release-tag>{snapshot.tag}</span
+      ><span>Released <span data-release-date>{formatDate(snapshot.publishedAt)}</span></span
+      ><a data-release-notes href={snapshot.notes}>Latest upstream release notes ↗</a
+      ><a href="/download/">Download latest release ↗</a></div
+    ><p class="small muted" data-release-status
+      >Saved release details. Enable JavaScript for live updates.</p
+    ></section
+  >
+  <section class="page-intro container"
+    ><p class="eyebrow">V0.12.0 HIGHLIGHTS</p><h1>A little more room to create.</h1
+    ><p class="lead"
+      >SolidCraft {release.tag} brings new rendering, surface and sheet-metal tools, plus a cleaner
+      window. Here are a few highlights from the upstream release.</p
+    ></section
+  >
+  <article class="container article" style="padding-top:0"
+    ><div class="release-meta"
+      ><span class="badge">{release.tag}</span><span>{formatDate(release.publishedAt)}</span
+      ><a href={release.notes}>Full upstream release notes ↗</a></div
+    ><div class="prose"
+      ><h2>Rendering & display</h2
+      ><p
+        >A Render workspace, named render setups, physically based materials in the product preview,
+        and PNG output. Display-quality presets and optional supersampling offer more control over
+        the viewport.</p
+      ><h2>Modeling & surfaces</h2
+      ><p
+        >Smart Extrude improvements, new surface tools, and updates to fillets, chamfers, sketches,
+        and assemblies. Read the full release notes for each operation’s scope and linked
+        changes.</p
+      ><h2>Sheet-metal handoff</h2
+      ><p
+        >Flat-pattern DXF gains role-based layers, dashed bend lines, and bend notes. Conversion and
+        corner handling receive improvements as well.</p
+      ><h2>A cleaner workspace</h2
+      ><p
+        >Updated title-bar navigation, touchpad and Blender navigation presets, an “Orbit around”
+        choice, and additional language support.</p
+      ><h2>MCP & reliability</h2
+      ><p
+        >The release includes MCP camera control and replay improvements, a compact component list
+        for large assemblies, and bridge startup improvements.</p
+      ><div class="notice"
+        ><strong>File compatibility</strong><br>Designs saved by 0.12.0 use file format 21 and
+        cannot be opened in 0.11.x or earlier. Older designs can open and rebuild in the new
+        release. Keep backups of important work.</div
+      ><div class="actions"
+        ><a class="button primary" href="/download/"
+          >Download latest release <Icon name="download" size={18} /></a
+        ><a class="text-link" href={release.notes}
+          >Read all changes <Icon name="external" size={18} /></a
+        ></div
+      ><h2>Looking for another build?</h2
+      ><p
+        >Older releases, current upstream updates, nightly builds, and their checksums remain
+        available on <a href={site.releases}>GitHub Releases</a>. The website’s package snapshot was
+        checked on {formatDate(snapshot.observedAt)}.</p
+      ></div
+    ></article
+  >
   <LiveRelease />
 </BaseLayout>

@@ -1,12 +1,57 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Video from '../../components/Video.astro';
 import ClosingCTA from '../../components/ClosingCTA.astro';
 import Icon from '../../components/Icon.astro';
+import Video from '../../components/Video.astro';
 import { guide } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="SELENE · A rover modeled through SolidCraft MCP" description="See 0xlillith’s SELENE rover, modeled through SolidCraft MCP, with a timeline replay and source model repository.">
-  <section class="page-intro container"><p class="breadcrumb"><a href="/showcase/">Showcase</a> / SELENE</p><p class="eyebrow">AGENT WORKFLOW / 0XLILLITH</p><h1>SELENE rover.</h1><p class="lead">A scientific rover built through SolidCraft’s MCP server. An editable assembly, from the chassis and wheels to the solar wings and camera turret.</p></section>
+
+<BaseLayout
+  title="SELENE · A rover modeled through SolidCraft MCP"
+  description="See 0xlillith’s SELENE rover, modeled through SolidCraft MCP, with a timeline replay and source model repository."
+>
+  <section class="page-intro container"
+    ><p class="breadcrumb"><a href="/showcase/">Showcase</a> / SELENE</p
+    ><p class="eyebrow">AGENT WORKFLOW / 0XLILLITH</p><h1>SELENE rover.</h1
+    ><p class="lead"
+      >A scientific rover built through SolidCraft’s MCP server. An editable assembly, from the
+      chassis and wheels to the solar wings and camera turret.</p
+    ></section
+  >
   <div class="container full-demo"><Video model="rover" /></div>
-  <div class="container model-details"><div><h2>3,323 timeline steps.</h2><p>The upstream project presents SELENE as a rover created by 0xlillith through SolidCraft MCP, with 3,323 editable timeline steps. Its recording replays that timeline at 2× speed.</p><p>The replay shows the assembly taking shape. It is a timeline recording, not a recording of the agent conversation or a claim that the full modeling process took a minute.</p><h2 style="margin-top:40px">Open the source model.</h2><p>The creator’s repository contains the editable model and its own notes. Download a supported design file there, open it in SolidCraft, and inspect its timeline. Check the repository’s build and licensing information before reusing it.</p><div class="actions"><a class="button primary" href="https://github.com/0xlillith/solidcraft-rover">Model & source repository <Icon name="external" size={18} /></a><a class="text-link" href="/mcp/">MCP setup and tools <Icon size={18} /></a></div><div class="notice">SELENE is a conceptual model. The recording does not establish physical feasibility, manufacturing readiness, or independently verified engineering performance.</div></div><aside><dl><dt>Model creator</dt><dd><a href="https://github.com/0xlillith">0xlillith</a></dd><dt>Recording</dt><dd>SolidCraft contributors</dd><dt>Playback</dt><dd>2× timeline replay</dd><dt>Recording license</dt><dd>MIT OR Apache-2.0, per upstream attribution</dd><dt>Model lettering</dt><dd>Ubuntu Light outlines; see creator’s repository notices.</dd><dt>Recorded build</dt><dd>Exact build not identified in upstream attribution.</dd></dl><a class="text-link" href={guide('mcp')}>MCP setup guide <Icon name="external" size={18} /></a></aside></div><ClosingCTA />
+  <div class="container model-details"
+    ><div
+      ><h2>3,323 timeline steps.</h2
+      ><p
+        >The upstream project presents SELENE as a rover created by 0xlillith through SolidCraft
+        MCP, with 3,323 editable timeline steps. Its recording replays that timeline at 2× speed.</p
+      ><p
+        >The replay shows the assembly taking shape. It is a timeline recording, not a recording of
+        the agent conversation or a claim that the full modeling process took a minute.</p
+      ><h2 style="margin-top:40px">Open the source model.</h2
+      ><p
+        >The creator’s repository contains the editable model and its own notes. Download a
+        supported design file there, open it in SolidCraft, and inspect its timeline. Check the
+        repository’s build and licensing information before reusing it.</p
+      ><div class="actions"
+        ><a class="button primary" href="https://github.com/0xlillith/solidcraft-rover"
+          >Model & source repository <Icon name="external" size={18} /></a
+        ><a class="text-link" href="/mcp/">MCP setup and tools <Icon size={18} /></a></div
+      ><div class="notice"
+        >SELENE is a conceptual model. The recording does not establish physical feasibility,
+        manufacturing readiness, or independently verified engineering performance.</div
+      ></div
+    ><aside
+      ><dl
+        ><dt>Model creator</dt><dd><a href="https://github.com/0xlillith">0xlillith</a></dd
+        ><dt>Recording</dt><dd>SolidCraft contributors</dd><dt>Playback</dt
+        ><dd>2× timeline replay</dd><dt>Recording license</dt
+        ><dd>MIT OR Apache-2.0, per upstream attribution</dd><dt>Model lettering</dt
+        ><dd>Ubuntu Light outlines; see creator’s repository notices.</dd><dt>Recorded build</dt
+        ><dd>Exact build not identified in upstream attribution.</dd></dl
+      ><a class="text-link" href={guide('mcp')}
+        >MCP setup guide <Icon name="external" size={18} /></a
+      ></aside
+    ></div
+  ><ClosingCTA />
 </BaseLayout>

@@ -1,14 +1,15 @@
 import { createStore } from 'zustand/vanilla';
 import snapshot from '../data/releases.json';
 import { normalizeRelease } from './normalize-release';
-import { snapshotSchema, type Release } from './releases';
+import { type Release, snapshotSchema } from './releases';
 
 export const releaseEndpoint = 'https://api.github.com/repos/bherbruck/solidcraft/releases/latest';
 export const releaseCacheKey = 'solidcraft:release:v1';
 export const releaseCacheTTL = 5 * 60 * 1000;
 type Listener = (release: Release, unavailable: boolean) => void;
 export const releaseStore = createStore<{ release: Release; unavailable: boolean }>()(() => ({
-  release: snapshotSchema.parse(snapshot), unavailable: false,
+  release: snapshotSchema.parse(snapshot),
+  unavailable: false,
 }));
 let started = false;
 let lastAttempt = 0;
@@ -19,7 +20,9 @@ export function readCachedRelease(value: string | null, now = Date.now()): Relea
     const release = snapshotSchema.parse(JSON.parse(value || 'null'));
     const age = now - Date.parse(release.observedAt);
     return release.verification === 'github-api-validated' && age >= 0 ? release : null;
-  } catch { return null; }
+  } catch {
+    return null;
+  }
 }
 
 async function refresh() {
@@ -29,13 +32,20 @@ async function refresh() {
     try {
       const response = await fetch(releaseEndpoint, {
         headers: { Accept: 'application/vnd.github+json' },
-        credentials: 'omit', signal: AbortSignal.timeout(10_000),
+        credentials: 'omit',
+        signal: AbortSignal.timeout(10_000),
       });
       if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
       const release = normalizeRelease(await response.json(), new Date().toISOString(), true);
       releaseStore.setState({ release, unavailable: false });
-      try { localStorage.setItem(releaseCacheKey, JSON.stringify(release)); } catch { /* Storage is optional. */ }
-    } catch { releaseStore.setState({ unavailable: true }); }
+      try {
+        localStorage.setItem(releaseCacheKey, JSON.stringify(release));
+      } catch {
+        /* Storage is optional. */
+      }
+    } catch {
+      releaseStore.setState({ unavailable: true });
+    }
   })();
   await pending;
   pending = undefined;
@@ -47,10 +57,19 @@ export function startReleaseUpdates() {
     started = true;
     try {
       const cached = readCachedRelease(localStorage.getItem(releaseCacheKey));
-      if (cached) { releaseStore.setState({ release: cached }); lastAttempt = Date.parse(cached.observedAt); }
-    } catch { /* Private browsing and disabled storage still fetch normally. */ }
-    window.setInterval(() => { if (!document.hidden) void refresh(); }, releaseCacheTTL);
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) void refresh(); });
+      if (cached) {
+        releaseStore.setState({ release: cached });
+        lastAttempt = Date.parse(cached.observedAt);
+      }
+    } catch {
+      /* Private browsing and disabled storage still fetch normally. */
+    }
+    window.setInterval(() => {
+      if (!document.hidden) void refresh();
+    }, releaseCacheTTL);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) void refresh();
+    });
   }
   void refresh();
 }
