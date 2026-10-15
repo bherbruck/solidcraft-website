@@ -1,0 +1,53 @@
+---
+import LiveRelease from '../components/LiveRelease.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Actions from '../components/Actions';
+import Icon from '../components/Icon.astro';
+import Video from '../components/Video.astro';
+import CoreDiagram from '../components/CoreDiagram.astro';
+import ShowcaseCards from '../components/ShowcaseCards.astro';
+import ClosingCTA from '../components/ClosingCTA.astro';
+import release from '../data/releases.json';
+import { guide, site } from '../data/site';
+---
+<BaseLayout title="SolidCraft · Open Source Parametric CAD in Rust" description="Sketch, constrain, and build editable parts with SolidCraft. Open-source parametric CAD for desktop and browser, with optional MCP agent workflows.">
+  <section class="hero">
+    <div class="container hero-grid"><div>
+      <p class="eyebrow">DESKTOP AND BROWSER</p>
+      <h1>Open-source<br />parametric CAD.<br /><span>Built in Rust.</span></h1>
+      <p class="lead">Create sketches, set dimensions, and build 3D parts with an editable feature history. Work in the editor or connect an AI agent through MCP.</p>
+      <Actions /><a class="text-link" href="/mcp/">Connect an AI agent <Icon size={17} /></a>
+    </div><div class="hero-media"><Video model="enclosure" /></div></div>
+    <div class="container release-line"><span class="dot" aria-hidden="true"></span><a href={site.releases}><span data-release-tag>{release.tag}</span> available</a><span>Windows / macOS / Linux / FreeBSD</span><span>Desktop + browser</span></div>
+  </section>
+  <div class="container workflow-strip">
+    <div><span>01 / SKETCH</span><h2>Constrain your sketch.</h2><p>Set dimensions, angles, and geometric constraints.</p></div>
+    <div><span>02 / BUILD</span><h2>Build a solid.</h2><p>Extrude or revolve a sketch into a 3D part.</p></div>
+    <div><span>03 / REFINE</span><h2>Edit earlier features.</h2><p>Change parameters and rebuild the model.</p></div>
+    <div><span>04 / EXCHANGE</span><h2>Import and export files.</h2><p>Save editable designs or export STEP and mesh files.</p></div>
+  </div>
+  <section class="section section-alt"><div class="container story-grid"><div>
+    <p class="eyebrow">PARAMETERS AND FEATURE HISTORY</p><h2>Change dimensions.<br />Rebuild the model.</h2>
+    <p class="lead">Use named parameters for dimensions such as board width, wall thickness, and enclosure height. Change a value to rebuild the features that depend on it.</p>
+    <div class="step-list"><div><span class="number">01</span><div><h3>Start with a constrained sketch.</h3><p>Define the sketch’s dimensions and geometric constraints.</p></div></div><div><span class="number">02</span><div><h3>Add features to the timeline.</h3><p>Keep the sketch, features, and parameters in an editable timeline.</p></div></div><div><span class="number">03</span><div><h3>Change the enclosure height.</h3><p>The recorded enclosure changes from 24 to 32 mm in height.</p></div></div></div>
+    <a class="text-link" href="/showcase/pi-enclosure/">Watch the enclosure demo <Icon size={18} /></a>
+  </div><Video model="enclosure" variant="parameter-change" /></div></section>
+  <section class="section mcp-section"><div class="container story-grid"><div>
+    <p class="eyebrow">AI AGENTS / MODEL CONTEXT PROTOCOL</p><h2>Model with an AI agent.</h2><p class="lead">MCP lets a compatible AI agent run modeling commands, measure geometry, change parameters, and export files. You can open and edit the resulting design in SolidCraft.</p>
+    <div class="actions"><a class="button primary" href="/mcp/">Explore MCP <Icon size={18} /></a><a class="button outline" href={guide('mcp')}>Read the setup guide <Icon name="external" size={18} /></a></div><p class="note">AI is optional. SolidCraft works without a connected assistant.</p>
+  </div><div><Video model="rover" /><div class="mcp-tools"><span>Build</span><span>Inspect</span><span>Revise</span><span>Export</span></div></div></div></section>
+  <section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">MODELING TOOLS</p><h2>Sketch, model, and assemble.</h2></div><a class="text-link" href="/features/">Explore the features <Icon size={18} /></a></div>
+    <div class="feature-rows">
+      <a class="feature-row" href="/features/#sketching"><span class="mono">01</span><h3>Sketches and constraints.</h3><p>Draw lines, arcs, and splines, then add dimensions and constraints.</p><Icon name="external" /></a>
+      <a class="feature-row" href="/features/#modeling"><span class="mono">02</span><h3>Solid modeling.</h3><p>Extrude, revolve, fillet, and edit features in the timeline.</p><Icon name="external" /></a>
+      <a class="feature-row" href="/features/#assemblies"><span class="mono">03</span><h3>Assemblies and joints.</h3><p>Combine components, define joints, and create configurations.</p><Icon name="external" /></a>
+      <a class="feature-row" href="/features/#file-exchange"><span class="mono">04</span><h3>Import and export.</h3><p>See which formats preserve editable history, solid geometry, or meshes.</p><Icon name="external" /></a>
+    </div>
+  </div></section>
+  <section class="section core-section"><div class="container core-grid"><CoreDiagram /><div><p class="eyebrow">SOLIDCORE / GEOMETRY KERNEL</p><h2>SolidCore.<br />A Rust geometry kernel.</h2><p class="lead">SolidCore is a Rust port of SMLib, NVIDIA’s open-source C++ geometry library. A geometry kernel represents 3D shapes and performs modeling operations on them.</p><a class="text-link" href="/solidcore/">About SolidCore <Icon size={18} /></a><p class="small muted" style="margin-top:20px">SolidCore is being developed for use in SolidCraft.</p></div></div></section>
+  <section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">EXAMPLE MODELS</p><h2>Made with SolidCraft.</h2></div><a class="text-link" href="/showcase/">See the showcase <Icon size={18} /></a></div><ShowcaseCards /></div></section>
+  <div class="container release-callout"><div><p class="eyebrow" style="margin-bottom:12px">LATEST RELEASE</p><h2>SolidCraft <span data-release-tag>{release.tag}</span>.</h2></div><p>See the latest changes and read the upstream compatibility notes before upgrading.</p><a class="text-link" href={site.releases}>What’s new<Icon size={18} /></a></div>
+  <section class="section"><div class="container story-grid"><div><p class="eyebrow">CONTRIBUTE</p><h2>Help build SolidCraft.</h2></div><div><p class="lead">Report bugs, improve the documentation, or contribute code. See the contribution guide for setup instructions and development practices.</p><a class="text-link" href="https://github.com/bherbruck/solidcraft/blob/main/CONTRIBUTING.md">Contribution guide <Icon name="external" size={18} /></a></div></div></section>
+  <ClosingCTA />
+  <LiveRelease />
+</BaseLayout>

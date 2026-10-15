@@ -1,0 +1,19 @@
+<script>
+  import { watchReleases } from '../lib/release-client';
+  import { formatDate } from '../lib/releases';
+  watchReleases((release, unavailable) => {
+    document.querySelectorAll('[data-release-tag]').forEach((node) => { node.textContent = release.tag; });
+    document.querySelectorAll('[data-release-date]').forEach((node) => { node.textContent = formatDate(release.publishedAt); });
+    document.querySelectorAll<HTMLAnchorElement>('[data-release-notes]').forEach((node) => { node.href = release.notes; });
+    document.querySelectorAll<HTMLAnchorElement>('[data-release-checksums]').forEach((node) => {
+      node.hidden = !release.checksums;
+      if (release.checksums) node.href = release.checksums;
+    });
+    document.querySelectorAll('[data-release-status]').forEach((node) => {
+      node.textContent = unavailable
+        ? `GitHub could not be reached. Showing package details checked ${formatDate(release.observedAt)}. Check GitHub for the latest release.`
+        : `Package details checked ${formatDate(release.observedAt)}${release.verification === 'github-api-validated' ? ' from GitHub' : ''}.`;
+    });
+    document.querySelectorAll<HTMLElement>('[data-release-stale]').forEach((node) => { node.hidden = release.verification === 'github-api-validated'; });
+  });
+</script>
