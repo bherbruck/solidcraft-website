@@ -1,0 +1,7 @@
+# SolidCraft website
+
+Read the README and relevant source, configuration, and tests before changing a feature. The website lives in `apps/frontend/solidcraft-landing/`, with its package, configuration, source, assets, scripts, and tests. Root pnpm commands forward to this workspace package. The site uses static Astro, React islands for interactive UI, strict TypeScript, Tailwind v4, and Zustand for shared client state. Keep the browser app and mdBook independent.
+
+Use `pnpm`, retain exact dependency versions and the root workspace lockfile, and run the applicable type, content, unit, output, and browser checks. Do not edit generated `apps/frontend/solidcraft-landing/dist/` by hand. SolidCore progress must load online and fail visibly without saved or cached report fallbacks. Preserve source revision metadata and upstream notices. Never substitute source review for executed CAD tests.
+
+Keep builds offline and deterministic. Browsers refresh validated public GitHub release metadata at runtime; keep a complete checked-in HTML fallback and five-minute refresh/cache behavior. The optional manual release refresh creates a candidate for review. Documentation links use https://docs.solidcraft.io/. Preserve the existing browser-app destination until its separate origin migration passes. This MVP is noindex and local for review. Do not deploy, commit visual changes, change DNS, or claim official status without user authorization.
