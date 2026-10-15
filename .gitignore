@@ -1,0 +1,9 @@
+docs/
+node_modules/
+.astro/
+dist/
+test-results/
+playwright-report/
+artifacts/
+/apps/frontend/solidcraft-landing/src/data/release-candidate.json
+.DS_Store
