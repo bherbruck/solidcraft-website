@@ -1,37 +1,142 @@
-# SolidCraft website
+<p align="center">
+  <img src="apps/frontend/solidcraft-landing/public/brand/solidcraft.svg" width="64" height="64" alt="SolidCraft" />
+</p>
 
-A locally reviewable MVP for SolidCraft’s public website. Built with static Astro, React, strict TypeScript, Tailwind v4, and Zustand. Includes real upstream product media, release downloads, and the existing SolidCore progress reports.
+<h1 align="center">SolidCraft Website</h1>
 
-The application lives in [`apps/frontend/solidcraft-landing/`](apps/frontend/solidcraft-landing/). Its package owns the Astro configuration, source, public assets, scripts, and tests. The repository root owns the pnpm workspace and shared lockfile; the commands below forward to the solidcraft-landing package.
+<p align="center">
+  Product information, downloads, and development progress for SolidCraft.<br />
+  Built with Astro, React, TypeScript, Tailwind CSS, and Zustand.
+</p>
+
+<p align="center">
+  <a href="https://solidcraft.io">Website</a> ·
+  <a href="https://docs.solidcraft.io">Documentation</a> ·
+  <a href="https://github.com/bherbruck/solidcraft">SolidCraft</a> ·
+  <a href="https://github.com/bherbruck/solidcore">SolidCore</a>
+</p>
+
+[![Website checks](https://github.com/bherbruck/solidcraft-website/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bherbruck/solidcraft-website/actions/workflows/ci.yml)
+
+## Overview
+
+This repository contains the SolidCraft website: product pages, modeling demonstrations, desktop downloads, MCP setup, and live SolidCore progress reports.
+
+Astro generates static pages. React islands provide interactive navigation, download selection, command copying, and progress reports, with shared client state managed by Zustand. The browser application and documentation are maintained separately.
+
+[Development](#development) · [Project Structure](#project-structure) · [Live Data](#live-data) · [Quality Checks](#quality-checks) · [Deployment](#deployment) · [License](#license)
+
+## Development
+
+### Requirements
+
+| Tool | Version |
+| --- | --- |
+| Node.js | `24.10.0` |
+| pnpm | `12.10.1` |
+
+### Getting Started
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open `http://localhost:4347`. Both `pnpm dev` and `pnpm preview` use port 4347. Node **24.10.0** and pnpm **12.10.1** are pinned. Documentation links use https://docs.solidcraft.io/; the browser app retains its upstream destination.
+Open [localhost:4347](http://localhost:4347). Run commands from the repository root; they forward to the application package in `apps/frontend/solidcraft-landing/`.
+
+## Project Structure
+
+```text
+apps/frontend/solidcraft-landing/
+├── public/          # Branding, recordings, licenses, and redirects
+├── scripts/         # Content validation, output checks, and release tooling
+├── src/
+│   ├── components/  # Astro components and interactive React islands
+│   ├── data/        # Site links, release metadata, and asset provenance
+│   ├── layouts/     # Shared page layout and metadata
+│   ├── lib/         # Release and progress clients, validation, and utilities
+│   ├── pages/       # Product pages and SolidCore progress routes
+│   ├── stores/      # Zustand state
+│   └── styles/      # Shared styles and progress presentation
+└── tests/           # Unit tests, browser tests, and fixtures
+```
+
+The root contains the pnpm workspace, shared lockfile, and CI workflow. Keep dependency versions exact and commit lockfile changes with package changes.
+
+## Live Data
+
+### Downloads
+
+Downloads fetch the latest stable release from GitHub in the browser. Validated metadata is shared between download controls, cached for five minutes, and refreshed while the page is open. New releases appear without rebuilding. Checked-in release metadata supplies working package links when JavaScript or GitHub is unavailable.
+
+### SolidCore Progress
+
+The progress dashboard loads upstream reports directly at `/solidcore/progress/`, including unit details, issues, and surface-intersection results. Reports refresh every five minutes while visible and retain their source revision and generation time. Failed requests show an error with Retry; there is no saved or stale-data fallback. Remote HTML is sanitized before rendering, and upstream scripts are never executed.
+
+Builds do not fetch release or progress data. Public requests happen in the browser without credentials or API tokens.
+
+### Updating Release Metadata
+
+To prepare an update to the checked-in release metadata:
 
 ```sh
+pnpm releases:refresh vX.Y.Z
+```
+
+This writes `apps/frontend/solidcraft-landing/src/data/release-candidate.json` without replacing `releases.json`. Review the candidate before updating the checked-in metadata.
+
+## Quality Checks
+
+```sh
+pnpm check
 pnpm typecheck
 pnpm test:unit
 pnpm build
+pnpm --filter @solidcraft/solidcraft-landing exec playwright install chromium
 pnpm test:e2e
 pnpm test:dev
 ```
 
-You can also run the app scripts directly from `apps/frontend/solidcraft-landing/`.
+### Formatting and Linting
 
-For browser tests, install the pinned Playwright browser once with `pnpm --filter @solidcraft/solidcraft-landing exec playwright install chromium` if it is not already cached. The test suite starts and stops its own static server on port 4322, applying the built security headers.
+| Command | Purpose |
+| --- | --- |
+| `pnpm check` | Check formatting, lint rules, and imports |
+| `pnpm check:fix` | Apply formatting and safe lint fixes |
+| `pnpm format` | Format supported source files |
+| `pnpm format:check` | Check formatting without modifying files |
+| `pnpm lint` | Run lint checks only |
 
-The development regression uses a separate foreground server on port 4348 and confirms downloads continue working while a production build runs. It preserves your existing development server on port 4347.
+Biome checks TypeScript, React, Astro, CSS, and JSON. Generated files, public assets, and upstream test fixtures are excluded. CI runs `biome ci` from the repository root before type checking.
 
-`pnpm build` validates source data and imported media, produces `apps/frontend/solidcraft-landing/dist/`, checks all local output references and Pages size limits, and generates an enforced Content Security Policy. The result is static files; no application server or credentials are required. CI runs from the application directory after installing the root workspace.
+### Build and Browser Tests
 
+The build validates release data, media hashes, licenses, local links, page metadata, and static-host file limits. It also generates security headers, including the Content Security Policy.
 
-This review build uses `noindex` in HTML and response headers, plus a restrictive robots policy. It has not been deployed. Production domain cutover and official-site/operator review are separate launch steps.
+Browser tests cover responsive layouts, accessibility, navigation, downloads, video playback, clipboard behavior, and live-data success and failure states. They use a static server on port **4322** with the generated headers applied. The development regression uses port **4348** and checks hydration during a concurrent production build. Neither test server uses the development port, **4347**.
 
-Release versions and desktop/CLI packages refresh directly from public GitHub Releases in the browser, with a five-minute cache and a saved offline/no-JavaScript fallback. Publishing a new upstream release does not require rebuilding the website.
+## Deployment
 
-For Cloudflare Pages, use root directory `apps/frontend/solidcraft-landing`, build command `pnpm build`, and output directory `dist`. The app-level `.node-version` pins Node 24.10.0 when Pages uses that subdirectory. Remove any conflicting `NODE_VERSION` environment override or set it to `24.10.0`; Node 22.16.0 cannot execute the repository’s TypeScript scripts directly.
+```sh
+pnpm build
+pnpm preview
+```
 
-SolidCore progress loads directly from the upstream progress site. Failed loads show an error and retry; no progress snapshot or stale-data fallback is shipped.
+The output is `apps/frontend/solidcraft-landing/dist/`. Preview runs at [localhost:4347](http://localhost:4347). Hosting requires only static files; there is no server runtime or database.
+
+### Cloudflare Pages
+
+| Setting | Value |
+| --- | --- |
+| Root directory | `apps/frontend/solidcraft-landing` |
+| Build command | `pnpm build` |
+| Output directory | `dist` |
+| Node.js version | `24.10.0` |
+
+The application-level `.node-version` pins the build runtime. Any hosting `NODE_VERSION` override must match it. Deploy the generated `_headers` and `_redirects` with the rest of the output.
+
+Search indexing is currently disabled through page metadata, response headers, and `robots.txt`.
+
+## License
+
+Website code is licensed under [MIT](LICENSE). Product media, branding, fonts, and dependencies retain their respective licenses. Attribution and license files are included in [`public/notices/`](apps/frontend/solidcraft-landing/public/notices/), with source revisions and media hashes recorded in `src/data/`.
