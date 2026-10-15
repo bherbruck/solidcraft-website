@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "path": "/brand/social-banner.png",
+      "bytes": 78120,
+      "sha256": "dfeafabed82876fa37975464dff7d93c30fd37f1f5736fc5d372a7772bfecf6f",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "supplied planning package",
+      "license": "MIT OR Apache-2.0",
+      "creator": "SolidCraft contributors",
+      "transformation": "unchanged upstream asset"
+    },
+    {
+      "path": "/brand/solidcraft.svg",
+      "bytes": 2575,
+      "sha256": "3f89704ac008202c7256346a332ea4781f7e4a7adb3734d9dad7f44571946446",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft",
+      "license": "MIT OR Apache-2.0",
+      "creator": "SolidCraft contributors",
+      "transformation": "unchanged upstream asset"
+    },
+    {
+      "path": "/favicon.png",
+      "bytes": 2940,
+      "sha256": "c1457bcc1c37c0bef214a625327cf6a4b27bed0d18680dbb3cf6eab780bcec1d",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft",
+      "license": "MIT OR Apache-2.0",
+      "creator": "SolidCraft contributors",
+      "transformation": "unchanged upstream asset"
+    },
+    {
+      "path": "/media/enclosure-parameter.jpg",
+      "bytes": 183553,
+      "sha256": "4aa8f6a642e8a8339f80dab7d9d6d1a105aa20d546c2d062cd382f7599e490bd",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft",
+      "license": "MIT OR Apache-2.0",
+      "creator": "SolidCraft contributors",
+      "transformation": "frame extracted with ffmpeg; 1600 px wide JPEG"
+    },
+    {
+      "path": "/media/enclosure-parameter.mp4",
+      "bytes": 1834949,
+      "sha256": "70ce1b37d1bb6e6c532b003bed90820899e2cf403174caa38c82ff709341726b",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft/docs/screenshots/demo-0.8.mp4",
+      "license": "MIT OR Apache-2.0",
+      "creator": "SolidCraft contributors",
+      "transformation": "Excerpt from source seconds 33 to 40.966667; resized to 1600x900; H.264 CRF 20; original upstream 9x playback retained"
+    },
+    {
+      "path": "/media/enclosure-poster.jpg",
+      "bytes": 158436,
+      "sha256": "709c16484b2ba08d59cd9e8fbe8bdee051cc8a5ac6466e935d508883f3fe7897",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft",
+      "license": "MIT OR Apache-2.0",
+      "creator": "SolidCraft contributors",
+      "transformation": "frame extracted with ffmpeg; 1600 px wide JPEG"
+    },
+    {
+      "path": "/media/enclosure.mp4",
+      "bytes": 9898701,
+      "sha256": "086d90f5953ca4f86a9a3f2b9d5cf592b02b9b2fea636be1f057958c8d7e4a24",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft",
+      "license": "MIT OR Apache-2.0",
+      "creator": "SolidCraft contributors",
+      "transformation": "unchanged upstream asset"
+    },
+    {
+      "path": "/media/rover-poster.jpg",
+      "bytes": 222705,
+      "sha256": "6e0f963da977695bc4747cb16139e664146d19bec53e5c567d9c8c71578871fe",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft",
+      "license": "MIT OR Apache-2.0",
+      "creator": "0xlillith (model); SolidCraft contributors (recording)",
+      "transformation": "frame extracted with ffmpeg; 1600 px wide JPEG"
+    },
+    {
+      "path": "/media/rover.mp4",
+      "bytes": 11916279,
+      "sha256": "6b0982f374495f2a2f07b23ebaf76610abe183a1ba33ae3c674eee4e4ae04db4",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft",
+      "license": "MIT OR Apache-2.0",
+      "creator": "0xlillith (model); SolidCraft contributors (recording)",
+      "transformation": "unchanged upstream asset"
+    },
+    {
+      "path": "/media/sample-plate.png",
+      "bytes": 1432078,
+      "sha256": "3ecd5f69f3e515d6c45a4a307a6b2c2ac6513f694d4e21585b5551a4232e8541",
+      "sourceRevision": "843c54858909172b203d116df51970303292e4c6",
+      "source": "bherbruck/solidcraft",
+      "license": "MIT OR Apache-2.0",
+      "creator": "SolidCraft contributors",
+      "transformation": "unchanged upstream asset"
+    }
+  ]
+}
