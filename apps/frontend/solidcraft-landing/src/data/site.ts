@@ -1,7 +1,6 @@
 export const site = {
 	name: "SolidCraft",
 	url: "https://solidcraft.io",
-	// Documentation is hosted separately from the marketing site.
 	app: "https://solidcraft.ai/",
 	discord: "/discord",
 	discordInvite: "https://discord.gg/FtU4NQNVDH",
