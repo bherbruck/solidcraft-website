@@ -41,6 +41,54 @@ export const formatBytes = (bytes: number) =>
 	`${(bytes / 1024 / 1024).toFixed(1)} MiB`;
 
 export type Platform = (typeof platforms)[number];
+export type Architecture = (typeof architectures)[number];
+
+export function detectArchitecture(identity: string): Architecture | "" {
+	if (/aarch64|arm64/i.test(identity)) return "ARM64";
+	if (/x86_64|x64|Win64|WOW64|amd64/i.test(identity)) return "x64";
+	if (/i[3-6]86|\bx86\b/i.test(identity)) return "x86";
+	return "";
+}
+
+export async function detectDownloadSystem(browser: Navigator) {
+	const platform = detectPlatform(browser);
+	let architecture: Architecture | "" =
+		platform === "macOS"
+			? "Universal"
+			: detectArchitecture(`${browser.platform} ${browser.userAgent}`);
+	const hints = (
+		browser as Navigator & {
+			userAgentData?: {
+				getHighEntropyValues: (
+					keys: string[],
+				) => Promise<{ architecture?: string; bitness?: string }>;
+			};
+		}
+	).userAgentData;
+	if (platform && platform !== "macOS" && hints) {
+		try {
+			const values = await Promise.race([
+				hints.getHighEntropyValues(["architecture", "bitness"]),
+				new Promise<never>((_, reject) =>
+					setTimeout(() => reject(new Error("Client hints timed out")), 1000),
+				),
+			]);
+			// Chromium can report an x64 user agent on ARM; client hints take precedence.
+			if (values.architecture === "arm")
+				architecture = values.bitness === "64" ? "ARM64" : "";
+			else if (values.architecture === "x86")
+				architecture =
+					values.bitness === "64"
+						? "x64"
+						: values.bitness === "32"
+							? "x86"
+							: architecture;
+		} catch {
+			/* Fall back to the architecture exposed in the user agent. */
+		}
+	}
+	return { platform, architecture };
+}
 export type DownloadChoice = Pick<
 	Artifact,
 	"platform" | "architecture" | "kind" | "url" | "bytes"
@@ -75,7 +123,7 @@ export function recommendArtifact<T extends DownloadChoice>(
 	kind = "",
 ): T | null {
 	if (!platform) return null;
-	// macOS has a reviewed Universal build. Other systems need an explicit CPU choice.
+	// macOS has a reviewed Universal build. Other systems need a detected or selected CPU.
 	const selectedArchitecture =
 		architecture || (platform === "macOS" ? "Universal" : "");
 	if (!selectedArchitecture) return null;

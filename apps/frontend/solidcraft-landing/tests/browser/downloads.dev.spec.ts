@@ -2,9 +2,10 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { expect, test } from "@playwright/test";
 import { mockProgress } from "./progress-fixture";
-import { endpoint, githubRelease } from "./release-fixture";
+import { endpoint, githubRelease, mockDownloadAssets } from "./release-fixture";
 
 test.beforeEach(async ({ page }) => {
+	await mockDownloadAssets(page);
 	await mockProgress(page);
 	await page.route(endpoint, (route) =>
 		route.fulfill({ json: githubRelease() }),

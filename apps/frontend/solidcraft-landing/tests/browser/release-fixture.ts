@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import type { Page } from "@playwright/test";
 import { snapshotSchema } from "../../src/lib/releases";
 
 const snapshot = snapshotSchema.parse(
@@ -33,4 +34,20 @@ export function githubRelease(tag = snapshot.tag) {
 			},
 		],
 	};
+}
+
+// Keep automatic downloads deterministic and avoid fetching actual installers in QA.
+export async function mockDownloadAssets(page: Page) {
+	await page.route(
+		"https://github.com/*/solidcraft/releases/download/**",
+		(route) =>
+			route.fulfill({
+				contentType: "application/octet-stream",
+				headers: {
+					"content-disposition":
+						'attachment; filename="solidcraft-test-package"',
+				},
+				body: "Test package",
+			}),
+	);
 }

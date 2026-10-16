@@ -2,9 +2,10 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 import { routes, site } from "../../src/data/site";
 import { mockProgress } from "./progress-fixture";
-import { endpoint, githubRelease } from "./release-fixture";
+import { endpoint, githubRelease, mockDownloadAssets } from "./release-fixture";
 
 test.beforeEach(async ({ page }) => {
+	await mockDownloadAssets(page);
 	await mockProgress(page);
 	await page.route(endpoint, (route) =>
 		route.fulfill({ json: githubRelease() }),
@@ -80,7 +81,7 @@ test("hero actions stay visible and layouts reflow at representative widths", as
 		await page.goto("/");
 		const actions = page.locator(".hero .actions");
 		await expect(
-			actions.getByRole("link", { name: "Download SolidCraft" }),
+			actions.getByRole("link", { name: /Download (for .+|SolidCraft)/ }),
 		).toHaveAttribute("href", "/download/");
 		await expect(
 			actions.getByRole("link", { name: "Try in your browser" }),

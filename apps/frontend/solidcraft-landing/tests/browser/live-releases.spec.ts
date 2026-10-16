@@ -1,5 +1,9 @@
 import { expect, test } from "@playwright/test";
-import { endpoint, githubRelease } from "./release-fixture";
+import { endpoint, githubRelease, mockDownloadAssets } from "./release-fixture";
+
+test.beforeEach(async ({ page }) => {
+	await mockDownloadAssets(page);
+});
 
 const cacheKey = "solidcraft:release:v1";
 test("a new GitHub release updates packages, metadata, CTA and other pages without rebuilding", async ({

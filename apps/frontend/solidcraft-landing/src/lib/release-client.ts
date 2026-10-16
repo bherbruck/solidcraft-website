@@ -11,9 +11,11 @@ type Listener = (release: Release, unavailable: boolean) => void;
 export const releaseStore = createStore<{
 	release: Release;
 	unavailable: boolean;
+	ready: boolean;
 }>()(() => ({
 	release: snapshotSchema.parse(snapshot),
 	unavailable: false,
+	ready: false,
 }));
 let started = false;
 let lastAttempt = 0;
@@ -58,6 +60,8 @@ async function refresh() {
 			}
 		} catch {
 			releaseStore.setState({ unavailable: true });
+		} finally {
+			releaseStore.setState({ ready: true });
 		}
 	})();
 	await pending;
@@ -71,7 +75,10 @@ export function startReleaseUpdates() {
 		try {
 			const cached = readCachedRelease(localStorage.getItem(releaseCacheKey));
 			if (cached) {
-				releaseStore.setState({ release: cached });
+				releaseStore.setState({
+					release: cached,
+					ready: Date.now() - Date.parse(cached.observedAt) < releaseCacheTTL,
+				});
 				lastAttempt = Date.parse(cached.observedAt);
 			}
 		} catch {

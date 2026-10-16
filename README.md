@@ -69,6 +69,8 @@ The root contains the pnpm workspace, shared lockfile, and CI workflow. Keep dep
 
 Downloads fetch the latest stable release from GitHub in the browser. Validated metadata is shared between download controls, cached for five minutes, and refreshed while the page is open. New releases appear without rebuilding. Checked-in release metadata supplies working package links when JavaScript or GitHub is unavailable.
 
+Homepage download buttons identify the visitor’s desktop platform. The download page starts one matching download after checking release metadata and keeps the complete package list available. Unrecognized systems or architectures use manual selection. Releases come from `tangency-labs/solidcraft` and require validated release URLs.
+
 ### SolidCore Progress
 
 The progress dashboard loads upstream reports directly at `/solidcore/progress/`, including unit details, issues, and surface-intersection results. Reports refresh every five minutes while visible and retain their source revision and generation time. Failed requests show an error with Retry; there is no saved or stale-data fallback. Remote HTML is sanitized before rendering, and upstream scripts are never executed.
