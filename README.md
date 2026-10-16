@@ -12,11 +12,11 @@
 <p align="center">
   <a href="https://solidcraft.io">Website</a> ·
   <a href="https://docs.solidcraft.io">Documentation</a> ·
-  <a href="https://github.com/bherbruck/solidcraft">SolidCraft</a> ·
-  <a href="https://github.com/bherbruck/solidcore">SolidCore</a>
+  <a href="https://github.com/tangency-labs/solidcraft">SolidCraft</a> ·
+  <a href="https://github.com/tangency-labs/solidcore">SolidCore</a>
 </p>
 
-[![Website checks](https://github.com/bherbruck/solidcraft-website/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bherbruck/solidcraft-website/actions/workflows/ci.yml)
+[![Website checks](https://github.com/tangency-labs/website/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/tangency-labs/website/actions/workflows/ci.yml)
 
 ## Overview
 

@@ -4,7 +4,7 @@ import { normalizeRelease } from "./normalize-release";
 import { type Release, snapshotSchema } from "./releases";
 
 export const releaseEndpoint =
-	"https://api.github.com/repos/bherbruck/solidcraft/releases/latest";
+	"https://api.github.com/repos/tangency-labs/solidcraft/releases/latest";
 export const releaseCacheKey = "solidcraft:release:v1";
 export const releaseCacheTTL = 5 * 60 * 1000;
 type Listener = (release: Release, unavailable: boolean) => void;

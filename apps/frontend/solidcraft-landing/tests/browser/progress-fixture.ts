@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import type { Page } from "@playwright/test";
-export const upstream = "https://bherbruck.github.io/solidcore/";
+export const upstream = "https://tangency-labs.github.io/solidcore/";
 const fixture = (name: string) =>
 	readFileSync(`tests/fixtures/progress/${name}.html`, "utf8");
 export const overviewHtml = fixture("overview");

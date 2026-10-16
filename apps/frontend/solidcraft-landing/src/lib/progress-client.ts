@@ -144,7 +144,7 @@ export function parseOnlineProgress(
 		footer?.querySelector<HTMLAnchorElement>("a[href]")?.getAttribute("href") ||
 		"";
 	const revision =
-		/^https:\/\/github\.com\/bherbruck\/solidcore\/tree\/([a-f0-9]{40})$/.exec(
+		/^https:\/\/github\.com\/tangency-labs\/solidcore\/tree\/([a-f0-9]{40})$/.exec(
 			source,
 		)?.[1];
 	const sourceDate = footer?.textContent?.match(

@@ -82,11 +82,11 @@ test("platform download uses the Universal macOS build and asks other systems fo
 });
 test("download destinations must match the exact repository, release, and HTTPS resource shape", () => {
 	const base =
-		"https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/";
+		"https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/";
 	assert.equal(isReleaseAssetUrl(`${base}solidcraft.zip`, snapshot.tag), true);
 	for (const bad of [
 		`${base.replace("https:", "http:")}a.zip`,
-		`${base.replace("bherbruck", "attacker")}a.zip`,
+		`${base.replace("tangency-labs", "attacker")}a.zip`,
 		`${base.replace("github.com", "github.com.evil.test")}a.zip`,
 		`${base.replace("v0.12.0", "v0.11.0")}a.zip`,
 		`${base}%2e%2e/evil`,
@@ -231,7 +231,7 @@ test("live normalization skips new package roles, allows missing checksum files,
 		name: "solidcraft-0.12.0-new-platform.pkg",
 		size: 100,
 		browser_download_url:
-			"https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/new.pkg",
+			"https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/new.pkg",
 		digest: null,
 	};
 	const release = normalizeRelease(

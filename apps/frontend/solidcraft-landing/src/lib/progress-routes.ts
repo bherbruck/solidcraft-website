@@ -1,6 +1,6 @@
 // Stable route aliases only; progress and test results are fetched online.
 export const progressBase = "/solidcore/progress/";
-export const progressOrigin = "https://bherbruck.github.io/solidcore/";
+export const progressOrigin = "https://tangency-labs.github.io/solidcore/";
 export const progressUnits = [
 	"audit.recursion",
 	"blend.fillet_corner_p1",

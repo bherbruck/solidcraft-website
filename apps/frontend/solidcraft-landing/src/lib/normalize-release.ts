@@ -151,7 +151,7 @@ export function normalizeRelease(
 	);
 	return snapshotSchema.parse({
 		schemaVersion: 1,
-		repository: "bherbruck/solidcraft",
+		repository: "tangency-labs/solidcraft",
 		observedAt,
 		tag: release.tag_name,
 		releaseId: release.id,

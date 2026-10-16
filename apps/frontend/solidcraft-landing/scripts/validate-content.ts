@@ -10,11 +10,11 @@ z.object({
 	schemaVersion: z.literal(1),
 	observedAt: z.iso.datetime(),
 	product: z.object({
-		repository: z.literal("bherbruck/solidcraft"),
+		repository: z.literal("tangency-labs/solidcraft"),
 		revision: z.string().regex(/^[a-f0-9]{40}$/),
 	}),
 	kernel: z.object({
-		repository: z.literal("bherbruck/solidcore"),
+		repository: z.literal("tangency-labs/solidcore"),
 		revision: z.string().regex(/^[a-f0-9]{40}$/),
 	}),
 	applicationTests: z.literal("not-executed"),

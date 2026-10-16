@@ -13,7 +13,7 @@ test("live unit routing supports new unit IDs and rejects traversal or foreign d
 	};
 	assert.equal(
 		upstreamProgressUrl(page, "new.geometry"),
-		"https://bherbruck.github.io/solidcore/units/new.geometry.html",
+		"https://tangency-labs.github.io/solidcore/units/new.geometry.html",
 	);
 	for (const id of [
 		"",

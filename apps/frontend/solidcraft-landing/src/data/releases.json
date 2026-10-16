@@ -1,13 +1,13 @@
 {
 	"schemaVersion": 1,
-	"repository": "bherbruck/solidcraft",
+	"repository": "tangency-labs/solidcraft",
 	"observedAt": "2026-10-15T20:30:05.868Z",
 	"tag": "v0.12.0",
 	"releaseId": 413877067,
 	"publishedAt": "2026-10-15T14:26:36Z",
 	"channel": "release",
-	"notes": "https://github.com/bherbruck/solidcraft/releases/tag/v0.12.0",
-	"checksums": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/SHA256SUMS.txt",
+	"notes": "https://github.com/tangency-labs/solidcraft/releases/tag/v0.12.0",
+	"checksums": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/SHA256SUMS.txt",
 	"verification": "upstream-metadata-reviewed",
 	"artifacts": [
 		{
@@ -17,7 +17,7 @@
 			"architecture": "x64",
 			"kind": "EXE installer",
 			"bytes": 65998848,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/SolidCraft-0.12.0-windows-x64.exe",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/SolidCraft-0.12.0-windows-x64.exe",
 			"digest": "sha256:e50a2a208e3a8e4ae63a85d71ee850768e4f2bb7acd3bba300f0cea06fd505b7",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -29,7 +29,7 @@
 			"architecture": "x64",
 			"kind": "MSI installer",
 			"bytes": 29659136,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-x64.msi",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-x64.msi",
 			"digest": "sha256:dce4fa5733231b7ba1369468367518000c313699c4d3d21f142246178f092ef8",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -41,7 +41,7 @@
 			"architecture": "x64",
 			"kind": "Portable ZIP",
 			"bytes": 38170499,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-x64-portable.zip",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-x64-portable.zip",
 			"digest": "sha256:2c66701d4c66630f3d1988e43ceaf5c4b2179baf89dddb15ea70b3e03a0e24c1",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -53,7 +53,7 @@
 			"architecture": "ARM64",
 			"kind": "MSI installer",
 			"bytes": 25944064,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-arm64.msi",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-arm64.msi",
 			"digest": "sha256:fd1fd0e95087f5ec429d383803302cd04432b00f7319ecd96fc0ef1764e27250",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -65,7 +65,7 @@
 			"architecture": "ARM64",
 			"kind": "Portable ZIP",
 			"bytes": 34684921,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-arm64-portable.zip",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-arm64-portable.zip",
 			"digest": "sha256:794d1b448300afb764f07b784a82cd4f7ec24344c560bb7ede909fa5a005c42b",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -77,7 +77,7 @@
 			"architecture": "x86",
 			"kind": "MSI installer",
 			"bytes": 27742208,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-x86.msi",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-x86.msi",
 			"digest": "sha256:1bda7cc92a67b708b2c06fefe2e11f33e9f9dc3b3f626d916bdfe2225bf538b5",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -89,7 +89,7 @@
 			"architecture": "x86",
 			"kind": "Portable ZIP",
 			"bytes": 34642551,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-x86-portable.zip",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-windows-x86-portable.zip",
 			"digest": "sha256:3d3cd93312d00f90dfd624bfe68d612eeda7becd6bdc14fdb8ca3e9e2fc63ce4",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -101,7 +101,7 @@
 			"architecture": "Universal",
 			"kind": "Disk image",
 			"bytes": 49355606,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-macos-universal.dmg",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-macos-universal.dmg",
 			"digest": "sha256:576bb08f662fc3f09bda2a13ce0868f40068db848fb4ce004351096deae46f64",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -113,7 +113,7 @@
 			"architecture": "Universal",
 			"kind": "CLI ZIP",
 			"bytes": 26475107,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-cli-0.12.0-macos-universal.zip",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-cli-0.12.0-macos-universal.zip",
 			"digest": "sha256:de52cee0afde02fc49d93d1bbbe6abd91c8679b4f4bfaa068bf18f51a7348272",
 			"signing": "unknown",
 			"cli": "yes"
@@ -125,7 +125,7 @@
 			"architecture": "x64",
 			"kind": "AppImage",
 			"bytes": 34941432,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.AppImage",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.AppImage",
 			"digest": "sha256:de8285f42733ddd1eda69d63b8fa1d58152bf10b90687b228d89403532c050d6",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -137,7 +137,7 @@
 			"architecture": "x64",
 			"kind": "DEB",
 			"bytes": 38339006,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.deb",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.deb",
 			"digest": "sha256:d87bed8017b044c7e8a2b4e3dd323aeb3c6e9a3628194b56c25be1331385fcaf",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -149,7 +149,7 @@
 			"architecture": "x64",
 			"kind": "RPM",
 			"bytes": 38025037,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.rpm",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.rpm",
 			"digest": "sha256:a8ae8bf3e1457d19ce17c2e981d543e3728b0da48caf087c6bcf4e8a4a8efb18",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -161,7 +161,7 @@
 			"architecture": "x64",
 			"kind": "Flatpak",
 			"bytes": 24462056,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.flatpak",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.flatpak",
 			"digest": "sha256:1386933f361e48021b446e4f66f27fb319af46c835dbf1a4ee21a4000a095af5",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -173,7 +173,7 @@
 			"architecture": "x64",
 			"kind": "Snap",
 			"bytes": 40382464,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.snap",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.snap",
 			"digest": "sha256:24ecaa0681f6dcfc86ef2fbc4d49daaa4648941332b6d137dcd3156a41ba6e74",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -185,7 +185,7 @@
 			"architecture": "x64",
 			"kind": "TAR archive",
 			"bytes": 37445645,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.tar.gz",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-x86_64.tar.gz",
 			"digest": "sha256:2bcc0cba5faac52b4518c2721ca7d324e63586a9dca5906ee1cb2b9906a95fda",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -197,7 +197,7 @@
 			"architecture": "ARM64",
 			"kind": "AppImage",
 			"bytes": 31898120,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.AppImage",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.AppImage",
 			"digest": "sha256:4a68b5a0e11d44965c5e056ee3d437f34eff2543571e6b49a33f779d679837c6",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -209,7 +209,7 @@
 			"architecture": "ARM64",
 			"kind": "DEB",
 			"bytes": 35779592,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.deb",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.deb",
 			"digest": "sha256:8fa6b660cfead19149e327e5f23d31077f30ba44fca38ab21b1443da16a76408",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -221,7 +221,7 @@
 			"architecture": "ARM64",
 			"kind": "RPM",
 			"bytes": 35339270,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.rpm",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.rpm",
 			"digest": "sha256:eb76ada8a9ee0754361c9d86e5565be524fc704c580d2c04b9bef16e694ed0f2",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -233,7 +233,7 @@
 			"architecture": "ARM64",
 			"kind": "Flatpak",
 			"bytes": 21024840,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.flatpak",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.flatpak",
 			"digest": "sha256:b46f52b1efd847e762538ea26da7106e3aa473a6a96e3acd115c5436e6a4e2e0",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -245,7 +245,7 @@
 			"architecture": "ARM64",
 			"kind": "Snap",
 			"bytes": 37171200,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.snap",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.snap",
 			"digest": "sha256:73316b7304713c3fc3a9f542f3026dcb74f60566ef4cfbd18ea017d249412387",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -257,7 +257,7 @@
 			"architecture": "ARM64",
 			"kind": "TAR archive",
 			"bytes": 34061763,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.tar.gz",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-linux-aarch64.tar.gz",
 			"digest": "sha256:3a3e5be1f9c2f90fd6dd611fffe3d64bf053c2660dff98e8d519f75cdce8f99f",
 			"signing": "unknown",
 			"cli": "unknown"
@@ -269,7 +269,7 @@
 			"architecture": "x64",
 			"kind": "TAR archive",
 			"bytes": 37308584,
-			"url": "https://github.com/bherbruck/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-freebsd-x86_64.tar.gz",
+			"url": "https://github.com/tangency-labs/solidcraft/releases/download/v0.12.0/solidcraft-0.12.0-freebsd-x86_64.tar.gz",
 			"digest": "sha256:184ac9f6bcd23fe92927872637740aa61fe46ecefe4ad51766ca6976be590a0d",
 			"signing": "unknown",
 			"cli": "unknown"

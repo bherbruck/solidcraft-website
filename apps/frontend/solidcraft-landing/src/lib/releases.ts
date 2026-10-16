@@ -12,7 +12,7 @@ export {
 export function isReleaseAssetUrl(value: string, tag: string): boolean {
 	try {
 		const url = new URL(value);
-		const prefix = `/bherbruck/solidcraft/releases/download/${encodeURIComponent(tag)}/`;
+		const prefix = `/tangency-labs/solidcraft/releases/download/${encodeURIComponent(tag)}/`;
 		const filename = decodeURIComponent(url.pathname.slice(prefix.length));
 		return (
 			url.protocol === "https:" &&
@@ -50,7 +50,7 @@ export const artifactSchema = z.object({
 export const snapshotSchema = z
 	.object({
 		schemaVersion: z.literal(1),
-		repository: z.literal("bherbruck/solidcraft"),
+		repository: z.literal("tangency-labs/solidcraft"),
 		observedAt: z.iso.datetime(),
 		tag: z.string().regex(/^v\d+\.\d+\.\d+$/),
 		releaseId: z.number().int().positive(),
@@ -88,7 +88,7 @@ export const snapshotSchema = z
 			ctx.addIssue({ code: "custom", message: "Untrusted checksum URL" });
 		if (
 			snapshot.notes !==
-			`https://github.com/bherbruck/solidcraft/releases/tag/${snapshot.tag}`
+			`https://github.com/tangency-labs/solidcraft/releases/tag/${snapshot.tag}`
 		)
 			ctx.addIssue({ code: "custom", message: "Release notes mismatch" });
 		if (

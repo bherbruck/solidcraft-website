@@ -77,7 +77,7 @@ test("rate limits and invalid release data retain usable saved packages", async 
 	await expect(page.locator(".package")).toHaveCount(22);
 	await expect(page.locator(".package a").first()).toHaveAttribute(
 		"href",
-		/github.com\/bherbruck\/solidcraft\/releases\/download\/v0.12.0/,
+		/github.com\/tangency-labs\/solidcraft\/releases\/download\/v0.12.0/,
 	);
 });
 

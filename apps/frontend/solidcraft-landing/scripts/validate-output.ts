@@ -76,7 +76,7 @@ for (const file of files.filter((file) => file.endsWith(".html"))) {
 		links++;
 	}
 }
-const csp = `default-src 'self'; script-src 'self' ${[...inlineScriptHashes].sort().join(" ")}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://api.github.com https://bherbruck.github.io; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'`;
+const csp = `default-src 'self'; script-src 'self' ${[...inlineScriptHashes].sort().join(" ")}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://api.github.com https://tangency-labs.github.io; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'`;
 await writeFile(
 	"dist/_headers",
 	`/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  X-Robots-Tag: noindex, nofollow\n  Content-Security-Policy: ${csp}\n\n/_astro/*\n  Cache-Control: public, max-age=31536000, immutable\n`,

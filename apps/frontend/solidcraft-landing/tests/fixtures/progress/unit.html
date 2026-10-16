@@ -11,7 +11,7 @@
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="" width="28" height="28">solidcore</a>
-<nav><a href="../index.html">Overview</a><a href="../units/index.html" aria-current="page">Units</a><a href="../issues.html">Upstream issues</a><a href="../ssi.html">SSI corpus</a><a href="https://github.com/bherbruck/solidcore">GitHub</a></nav>
+<nav><a href="../index.html">Overview</a><a href="../units/index.html" aria-current="page">Units</a><a href="../issues.html">Upstream issues</a><a href="../ssi.html">SSI corpus</a><a href="https://github.com/tangency-labs/solidcore">GitHub</a></nav>
 </div></header>
 <main class="wrap">
 
@@ -24,7 +24,7 @@
 <div><dt>Rust module</dt><dd><code>geom::vector3d</code></dd></div>
 </dl>
 
-<p>Source: <a href="https://github.com/bherbruck/solidcore/blob/16c5ad9cec67741ab00a41b75b18dfa7985e70ef/crates/solidcore/src/geom/vector3d.rs"><code>crates/solidcore/src/geom/vector3d.rs</code></a></p>
+<p>Source: <a href="https://github.com/tangency-labs/solidcore/blob/16c5ad9cec67741ab00a41b75b18dfa7985e70ef/crates/solidcore/src/geom/vector3d.rs"><code>crates/solidcore/src/geom/vector3d.rs</code></a></p>
 <p>Upstream: <a href="https://github.com/NVIDIA-Omniverse/usd-brep/blob/c9c5979f04cea8c38213004d4f04df0dcfb40d05/source/SMLib/inc/SmVector3d.h"><code>source/SMLib/inc/SmVector3d.h</code></a>, <a href="https://github.com/NVIDIA-Omniverse/usd-brep/blob/c9c5979f04cea8c38213004d4f04df0dcfb40d05/source/SMLib/src/SmMath.cpp"><code>source/SMLib/src/SmMath.cpp</code></a>, <a href="https://github.com/NVIDIA-Omniverse/usd-brep/blob/c9c5979f04cea8c38213004d4f04df0dcfb40d05/source/SMLib/src/SmVector3d.cpp"><code>source/SMLib/src/SmVector3d.cpp</code></a></p>
 <h2>Notes</h2>
 <p class="notes">65 fns; largest: SmVector3d::CCWAngleBetween, SmVector3d::AngleBetween, SmVector3d::MakeUnitOrthoVectors, SmVector3d::UnitizedDerivative3; unit-SCC #22 (220 units); 321 upstream test entry points reach this unit; GREEN: difftest 6114 cases (114 fixture from my_test_vector3d + edge cases, 6000 generated), all bit-identical, 0 deferred, perturb SENSITIVE; Vec3 moved from math.rs to geom::vector3d (re-exported); wired UNPORTED(geom.vector3d) in geom.tol (AreParallel/ArePerpendicular) and replaced CO-PORTs in tol/vector2d/extent3d</p>
@@ -43,7 +43,7 @@
 
 <h3>Blocked by</h3>
 <p class="muted">Nothing: no deferred cases.</p>
-<p><a href="https://github.com/bherbruck/solidcore/blob/16c5ad9cec67741ab00a41b75b18dfa7985e70ef/reports/difftest/geom.vector3d.json">Report JSON</a> (per-case results)</p>
+<p><a href="https://github.com/tangency-labs/solidcore/blob/16c5ad9cec67741ab00a41b75b18dfa7985e70ef/reports/difftest/geom.vector3d.json">Report JSON</a> (per-case results)</p>
 <h2>Dependencies</h2>
 <p><strong>Depends on:</strong> <span class="muted">none</span></p>
 <p><strong>Soft dependencies:</strong> <a class="chip" href="geom.tol.html">geom.tol <span class="badge s-green">green</span></a></p>
@@ -56,7 +56,7 @@
 <p class="tests"><code>prog_test:my_test_polynomial</code>, <code>SM_API_test:TestSmPrincipalDirectionPairing</code>, <code>prog_test:my_test_extent3d</code>, <code>prog_test:my_test_vector2d</code>, <code>prog_test:my_test_surface_closest_point</code>, <code>prog_test:my_test_drop_point</code></p>
 
 </main>
-<footer class="wrap">Generated from <a href="https://github.com/bherbruck/solidcore/tree/16c5ad9cec67741ab00a41b75b18dfa7985e70ef"><code>16c5ad9c</code></a>
+<footer class="wrap">Generated from <a href="https://github.com/tangency-labs/solidcore/tree/16c5ad9cec67741ab00a41b75b18dfa7985e70ef"><code>16c5ad9c</code></a>
 (2026-10-15T20:10:00Z) by <code>site/build.py</code>. Apache-2.0. Not affiliated with or endorsed by NVIDIA.</footer>
 <script src="../assets/app.js"></script>
 </body>

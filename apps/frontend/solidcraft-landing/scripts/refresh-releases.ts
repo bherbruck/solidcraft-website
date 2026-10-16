@@ -7,7 +7,7 @@ if (!tag || !/^v\d+\.\d+\.\d+$/.test(tag))
 		"Usage: pnpm releases:refresh vX.Y.Z. Choose a specific release for review.",
 	);
 const response = await fetch(
-	`https://api.github.com/repos/bherbruck/solidcraft/releases/tags/${tag}`,
+	`https://api.github.com/repos/tangency-labs/solidcraft/releases/tags/${tag}`,
 	{
 		headers: {
 			Accept: "application/vnd.github+json",

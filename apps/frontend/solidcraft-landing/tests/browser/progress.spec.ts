@@ -115,7 +115,7 @@ test("unit filters, keyboard sorting, issue anchors and legacy deep links remain
 	await expect(page.locator(".progress-content")).toContainText("Difftest");
 	await expect(page.getByRole("link", { name: "Report JSON" })).toHaveAttribute(
 		"href",
-		/github.com\/bherbruck\/solidcore\/blob\/16c5ad9c/,
+		/github.com\/tangency-labs\/solidcore\/blob\/16c5ad9c/,
 	);
 	await page.goto("/solidcore/progress/issues.html#UB-100-dup2");
 	await expect(page.locator(".issue:target")).toBeVisible();
@@ -141,7 +141,10 @@ test("no JavaScript explains that live reports require JavaScript", async ({
 		await expect(page.locator("#units tbody tr")).toHaveCount(0);
 		await expect(
 			page.getByRole("link", { name: "View the upstream progress site." }),
-		).toHaveAttribute("href", "https://bherbruck.github.io/solidcore/units/");
+		).toHaveAttribute(
+			"href",
+			"https://tangency-labs.github.io/solidcore/units/",
+		);
 	} finally {
 		await context.close();
 	}
