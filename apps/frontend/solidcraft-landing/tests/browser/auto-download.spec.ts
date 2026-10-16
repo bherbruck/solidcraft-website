@@ -182,9 +182,14 @@ test("Discord, migrated destinations and footer remain available on desktop and 
 		expect(response.status()).toBe(302);
 		expect(response.headers().location).toBe("https://discord.gg/FtU4NQNVDH");
 	}
+	for (const path of ["/app", "/app/"]) {
+		const response = await request.get(path, { maxRedirects: 0 });
+		expect(response.status()).toBe(302);
+		expect(response.headers().location).toBe("https://docs.solidcraft.io/app");
+	}
 	await expect(
 		page.locator(".hero").getByRole("link", { name: "Try in your browser" }),
-	).toHaveAttribute("href", "https://solidcraft.ai/");
+	).toHaveAttribute("href", "https://solidcraft.io/app");
 	await expect(page.locator(".footer-brand")).toContainText("© Tangency Labs");
 	await page.setViewportSize({ width: 390, height: 844 });
 	await page.locator(".mobile-menu summary").click();
