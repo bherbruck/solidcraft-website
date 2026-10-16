@@ -38,7 +38,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		<div class="container release-line">
 			<span aria-hidden="true" class="dot"></span>
 			<a href={site.releases}>
-				<span data-release-tag>{release.tag}</span> available
+				<span data-release-tag>{release.tag}</span>{" "}available
 			</a>
 			<span>Windows / macOS / Linux / FreeBSD</span>
 			<span>Desktop + browser</span>
@@ -223,7 +223,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	<div class="container release-callout">
 		<div>
 			<p class="eyebrow" style="margin-bottom:12px">LATEST RELEASE</p>
-			<h2>SolidCraft<span data-release-tag>{release.tag}</span>.</h2>
+			<h2>
+				SolidCraft{" "}
+				<span data-release-tag>{release.tag}</span>
+			</h2>
 		</div>
 		<p>
 			See the latest changes and read the upstream compatibility notes before

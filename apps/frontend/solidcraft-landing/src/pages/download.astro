@@ -38,7 +38,8 @@ const release = snapshotSchema.parse(snapshot);
 		<div class="release-meta">
 			<span class="badge" data-release-tag>{release.tag}</span>
 			<span>
-				Released<span data-release-date>{formatDate(release.publishedAt)}</span>
+				Released{" "}
+				<span data-release-date>{formatDate(release.publishedAt)}</span>
 			</span>
 			<a data-release-notes href={release.notes}>Release notes ↗</a>
 			<a
@@ -65,12 +66,13 @@ const release = snapshotSchema.parse(snapshot);
 		</noscript>
 		<p class="small muted" style="margin-top:24px">
 			<span data-release-status>
-				Package details checked{formatDate(release.observedAt)}. Enable
-				JavaScript for live release updates.
-			</span>
-			<a href={site.releases}>Check GitHub Releases.</a> Files are served
-			directly by the upstream GitHub release. Signing has not been
-			independently verified here.
+				Package details checked{" "}
+				{formatDate(release.observedAt)}
+				. Enable JavaScript for live release updates.
+			</span>{" "}
+			<a href={site.releases}>Check GitHub Releases.</a>{" "}
+			Files are served directly by the upstream GitHub release. Signing has not
+			been independently verified here.
 		</p>
 	</section>
 	<section class="section section-alt">
@@ -155,19 +157,21 @@ const release = snapshotSchema.parse(snapshot);
 			<strong>Compatibility note for v0.12.0</strong>
 			<br>
 			Designs saved by 0.12.0 use file format 21 and cannot be opened in 0.11.x
-			or earlier. Keep backups before upgrading.
-			<a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.12.0">
+			or earlier. Keep backups before upgrading.{" "}
+			<a
+				href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.12.0"
+			>
 				Read the compatibility notes.
 			</a>
 		</div>
 		<details class="prose">
 			<summary>Development builds, Flatpak, and building from source</summary>
 			<p>
-				Nightly builds are available on<a href={site.releases}>
+				Nightly builds are available on{" "}<a href={site.releases}>
 					GitHub Releases
-				</a>
-				. They are kept separate from the latest stable release. Follow
-				<a href={guide("getting-started")}>Getting started</a>
+				</a
+				>. They are kept separate from the latest stable release. Follow{" "}
+				<a href={guide("getting-started")}>Getting started</a>{" "}
 				for source builds and the existing Flatpak feed.
 			</p>
 		</details>

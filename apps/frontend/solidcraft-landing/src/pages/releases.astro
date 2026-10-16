@@ -23,7 +23,8 @@ import { site } from "../data/site";
 		<div class="release-meta">
 			<span class="badge" data-release-tag>{snapshot.tag}</span>
 			<span>
-				Released<span data-release-date>
+				Released{" "}
+				<span data-release-date>
 					{formatDate(snapshot.publishedAt)}
 				</span>
 			</span>
@@ -40,9 +41,10 @@ import { site } from "../data/site";
 		<p class="eyebrow">V0.12.0 HIGHLIGHTS</p>
 		<h1>A little more room to create.</h1>
 		<p class="lead">
-			SolidCraft{release.tag} brings new rendering, surface and sheet-metal
-			tools, plus a cleaner window. Here are a few highlights from the upstream
-			release.
+			SolidCraft{" "}
+			{release.tag}
+			brings new rendering, surface and sheet-metal tools, plus a cleaner
+			window. Here are a few highlights from the upstream release.
 		</p>
 	</section>
 	<article class="container article" style="padding-top:0">
@@ -98,10 +100,10 @@ import { site } from "../data/site";
 			<h2>Looking for another build?</h2>
 			<p>
 				Older releases, current upstream updates, nightly builds, and their
-				checksums remain available on<a href={site.releases}>GitHub Releases</a>
-				. The website’s package snapshot was checked on{formatDate(
-					snapshot.observedAt,
-				)}
+				checksums remain available on{" "}<a href={site.releases}
+					>GitHub Releases</a
+				>. The website’s package snapshot was checked on{" "}
+				{formatDate(snapshot.observedAt)}
 				.
 			</p>
 		</div>
