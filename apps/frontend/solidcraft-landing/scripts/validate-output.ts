@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { readdir, readFile, stat, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { routes } from "../src/data/site.ts";
+import { routes, site } from "../src/data/site.ts";
 import {
 	progressPages,
 	progressRedirects,
@@ -56,7 +56,7 @@ for (const file of files.filter((file) => file.endsWith(".html"))) {
 		const path = decodeURIComponent(resolved.pathname);
 		const candidates = [
 			`dist${path}`,
-			`dist${path}index.html`,
+			join("dist", path, "index.html"),
 			`dist${path}.html`,
 		];
 		if (
@@ -88,6 +88,7 @@ console.log(
 await writeFile(
 	"dist/_redirects",
 	(await readFile("public/_redirects", "utf8")) +
+		`${site.discord} ${site.discordInvite} 302\n${site.discord}/ ${site.discordInvite} 302\n` +
 		progressRedirects
 			.map((redirect) => `${redirect.from} ${redirect.to} 301`)
 			.join("\n") +

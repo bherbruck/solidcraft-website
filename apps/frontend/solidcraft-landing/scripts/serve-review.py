@@ -9,7 +9,7 @@ root = Path(__file__).resolve().parents[1] / 'dist'
 redirects = {}
 for line in (root / '_redirects').read_text().splitlines():
     parts = line.split()
-    if len(parts) == 3 and parts[0].startswith('/solidcore/progress/'):
+    if len(parts) == 3:
         redirects[parts[0]] = (parts[1], int(parts[2]))
 headers = []
 for line in (root / '_headers').read_text().split('\n\n')[0].splitlines()[1:]:

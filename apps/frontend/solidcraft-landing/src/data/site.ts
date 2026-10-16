@@ -3,7 +3,8 @@ export const site = {
 	url: "https://solidcraft.io",
 	// Documentation is hosted separately from the marketing site.
 	app: "https://solidcraft.ai/",
-	discord: "https://discord.gg/FtU4NQNVDH",
+	discord: "/discord",
+	discordInvite: "https://discord.gg/FtU4NQNVDH",
 	docs: "https://docs.solidcraft.io/",
 	repo: "https://github.com/tangency-labs/solidcraft",
 	kernel: "https://github.com/tangency-labs/solidcore",

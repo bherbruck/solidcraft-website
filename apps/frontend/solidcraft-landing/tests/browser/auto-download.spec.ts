@@ -169,13 +169,19 @@ test("a missing release keeps the saved package list without trying another repo
 
 test("Discord, migrated destinations and footer remain available on desktop and mobile", async ({
 	page,
+	request,
 }) => {
 	await page.goto("/");
 	await expect(
 		page
 			.getByRole("navigation", { name: "Main navigation" })
 			.getByRole("link", { name: "Discord" }),
-	).toHaveAttribute("href", "https://discord.gg/FtU4NQNVDH");
+	).toHaveAttribute("href", "/discord");
+	for (const path of ["/discord", "/discord/"]) {
+		const response = await request.get(path, { maxRedirects: 0 });
+		expect(response.status()).toBe(302);
+		expect(response.headers().location).toBe("https://discord.gg/FtU4NQNVDH");
+	}
 	await expect(
 		page.locator(".hero").getByRole("link", { name: "Try in your browser" }),
 	).toHaveAttribute("href", "https://solidcraft.ai/");

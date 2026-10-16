@@ -2,12 +2,16 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
+import { site } from "./src/data/site.ts";
 import { progressRedirects } from "./src/lib/progress-routes.ts";
 
 export default defineConfig({
 	site: "https://solidcraft.io",
 	output: "static",
 	trailingSlash: "always",
+	redirects: {
+		[site.discord]: { status: 302, destination: site.discordInvite },
+	},
 	integrations: [
 		react(),
 		sitemap({ filter: (url) => !/\/404(?:\.html|\/)$/.test(url) }),
