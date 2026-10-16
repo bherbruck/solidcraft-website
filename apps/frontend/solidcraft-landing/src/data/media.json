@@ -3,13 +3,12 @@
 	"assets": [
 		{
 			"path": "/brand/social-banner.png",
-			"bytes": 78120,
-			"sha256": "dfeafabed82876fa37975464dff7d93c30fd37f1f5736fc5d372a7772bfecf6f",
-			"sourceRevision": "843c54858909172b203d116df51970303292e4c6",
-			"source": "supplied planning package",
+			"bytes": 38597,
+			"sha256": "2e319fdfbb52db9ab1eebc135654aa8833be7d7eb123a53e2e912f54ba3433a9",
+			"source": "user-supplied replacement banner",
 			"license": "MIT OR Apache-2.0",
 			"creator": "SolidCraft contributors",
-			"transformation": "unchanged upstream asset"
+			"transformation": "unchanged supplied PNG"
 		},
 		{
 			"path": "/brand/solidcraft.svg",
