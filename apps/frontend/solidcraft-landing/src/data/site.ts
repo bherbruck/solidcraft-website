@@ -18,7 +18,7 @@ export const nav = [
 	{ label: "SolidCore", href: "/solidcore/" },
 	{ label: "Docs", href: site.docs },
 	{ label: "GitHub", href: site.repo },
-	{ label: "Discord", href: site.discord },
+	{ label: "Discord", href: site.discordInvite },
 ];
 export const routes = [
 	"/",

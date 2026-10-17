@@ -176,7 +176,7 @@ test("Discord, migrated destinations and footer remain available on desktop and 
 		page
 			.getByRole("navigation", { name: "Main navigation" })
 			.getByRole("link", { name: "Discord" }),
-	).toHaveAttribute("href", "/discord");
+	).toHaveAttribute("href", "https://discord.gg/FtU4NQNVDH");
 	for (const path of ["/discord", "/discord/"]) {
 		const response = await request.get(path, { maxRedirects: 0 });
 		expect(response.status()).toBe(302);
